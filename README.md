@@ -8,7 +8,7 @@ Este proyecto pertenece a la asignatura de Inteligencia Artificial para Videojue
 
 `Jorge` es un camarero que trabaja con sus padres en el mismo restaurante. A `Jorge` le han dejado todo el salón para él solo durante un ajetreado domingo. ¿Será capaz de apañárselas?
 
-Habrá una cola de clientes, unas mesas con dos asientos casa mesa, un espacio para sacar los platos, un espacio para sacar las bebidas, un baño y una puerta de entrada/salida de los clientes.
+Habrá una cola de clientes, unas mesas con dos asientos cada mesa, un espacio para sacar los platos, un espacio para sacar las bebidas, un baño y una puerta de entrada/salida de los clientes.
 
 ## Características
 
@@ -71,9 +71,6 @@ La versión de Unity utilizada es **Unity 2022.3.5f1**.
 | **Característica E** | | |
 |  | - <br> - | []() |
 
-[ENLACE AL VÍDEO COMPLETO EN YOUTUBE](https://youtu.be/Hyjrv2IvgoE)  
-[ENLACE AL VÍDEO COMPLETO EN DRIVE](https://drive.google.com/file/d/1UiNMjgLb2_Ug4UxNS5yX1aKOT3B9pJCC/view?usp=sharing)
-
 ## Producción
 
 Observa la tabla de abajo para ver el estado y las fechas de realización de las mismas. Puedes visitar el proyecto de GitHub en el siguiente [link](https://github.com/users/LauraWangQiu/projects/2/).
@@ -111,3 +108,7 @@ https://docs.unity3d.com/es/2021.1/Manual/Navigation.html
 https://github.com/PacktPublishing/Unity-2018-Artificial-Intelligence-Cookbook-Second-Edition 
 - Unity Artificial Intelligence Programming, 5th Edition (Repositorio)
 PacktPublishing/Unity-Artificial-Intelligence-Programming-Fifth-Edition: Unity Artificial Intelligence Programming – Fifth Edition, published by Packt (github.com)
+- CoffeeShop Starter Pack: https://assetstore.unity.com/packages/3d/props/coffeeshop-starter-pack-160914
+- Fast Food Restaurant Kit: https://assetstore.unity.com/packages/3d/environments/fast-food-restaurant-kit-239419
+- Cutlery: https://assetstore.unity.com/packages/3d/props/food/cutlery-silverware-pbr-106932
+- Customizable Kitchen Pack: https://assetstore.unity.com/packages/3d/props/interior/customizable-kitchen-pack-22269
