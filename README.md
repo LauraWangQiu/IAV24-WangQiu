@@ -1,6 +1,6 @@
 # IAV - Proyecto Final
 
-> Yi (Laura) Wang Qiu [GitHub](https://github.com/LauraWangQiu)
+> [Yi (Laura) Wang Qiu](https://github.com/LauraWangQiu)
 
 Este proyecto pertenece a la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos de la UCM.
 
@@ -8,13 +8,13 @@ Este proyecto pertenece a la asignatura de Inteligencia Artificial para Videojue
 
 `Jorge` es un camarero que trabaja con sus padres en el mismo restaurante. A `Jorge` le han dejado todo el salón para él solo durante un ajetreado domingo. ¿Será capaz de apañárselas?
 
-Habrá una cola de clientes, unas mesas con dos asientos cada mesa, un espacio para sacar los platos, un espacio para sacar las bebidas, un baño y una puerta de entrada/salida de los clientes.
+Habrá una cola de clientes, unas mesas con dos asientos cada mesa, un espacio para sacar los platos, un espacio para sacar las bebidas, un baño con dos lavabos y una puerta de entrada/salida de los clientes.
 
 ## Características
 
 ### Característica A
 
-`Jorge` podrá ser dirigido por un árbol de comportamientos como una IA o mediante el control del usuario. Para cambiar de estado, se pulsará el espacio.
+`Jorge` podrá ser dirigido por un árbol de comportamientos como una IA o mediante el control del usuario. Para cambiar de estado, se pulsará el espacio `SPACE`.
 
 ### Característica B
 
@@ -38,38 +38,128 @@ La versión de Unity utilizada es **Unity 2022.3.5f1**.
 
 | Clases | Información |
 | - | - |
-|  |  |
+| SelectRandomWish | Activa el comportamiento elegido aleatoriamente y desactiva el resto. |
+| Food | Estructura de datos para los platos de comida. Tienen asignado un cliente `Client` y un tiempo para enfriamiento `TimeToCoolDown`. |
+| Client | Estructura de datos para los clientes. Tienen asignado un deseo `Wish`, un tiempo de espera `WaitingTime`, una mesa `Table` y el dinero gastado hasta el momento `ChargedMoney`. |
+| Order | Estructura de datos para los pedidos de los clientes. Tienen asignado un cliente `Client` |
+| Register | Listas ordenadas para llevar el control de los pedidos a llevar a cabo, de los cobros a realizar y de los clientes que están esperando.|
+| Time | Estructura de datos para controlar el tiempo de las acciones. |
 
 ## Diseño de la solución
 
-...
+Realizaremos diferentes árboles de comportamiento para `Jorge` y los clientes:
+
+- `Jorge` tendrá un árbol de comportamiento que le permitirá atender a los clientes para asignarles una mesa, tomarles nota, llevarles los platos y cobrarles.
+
+```mermaid
+flowchart TD
+    A(("↺")) --> B((?))
+    B -->|"IsThereFood && (Food.TimeToCoolDown < X || (!IsThereOrder && !IsThereMoney && !IsThereQueue))"| C[MoveSequence/MoveToFood,MoveToClient,GiveFood]
+    B -->|"IsThereOrder && (Order.Client.WaitingTime > X || (!IsThereMoney && !IsThereQueue))"| D[MoveSequence/MoveToClient,TakeOrder,MoveToKitchen,GiveOrder]
+    B -->|"IsThereMoney"| E[MoveSequence/MoveToClient,TakeMoney]
+    B -->|"IsThereQueue"| F[MoveSequence/MoveToQueue,MoveToAvailableTable,GiveMenu]
+```
+
+La variable `X` será el tiempo de espera máximo para cada acción.
+
+La idea es priorizar la entrega de comida, seguido de la toma de pedidos, la recogida de dinero y la asignación de mesas.
+
+Es muy importante que `Jorge` no se quede parado en ningún momento y teniendo en cuenta que las acciones tienen un tiempo de ejecución, se deberá tener en cuenta el tiempo de espera máximo para cada acción.
+
+Los platos de comida tendrán un tiempo de enfriamiento, por lo que si `Jorge` no los entrega a tiempo, los clientes se enfadarán. Es por eso que se encuentra en la primera rama del árbol de comportamiento.
+
+Luego, se encuentra la toma de pedidos pues es la segunda acción más importante. Si no se toman los pedidos a tiempo, los clientes se enfadarán. Además, tras llevar la tanda a la cocina, se deberá esperar a que los platos estén listos por lo que durante ese tiempo, `Jorge` podrá realizar otras acciones.
+
+La recogida de dinero es la tercera acción más importante. Esto es debido a que si no se cobra a los clientes, no se podrá asignar la mesa a otro cliente.
+
+Cuando `Jorge` dé la comida a los clientes, se les sumará en la cuenta del cliente el precio del plato `ChargedMoney`.
+
+- Los clientes tendrán una lista de deseos y cada deseo tendrá un árbol de comportamiento que les permitirán pedir comida, coger bebida, ir al baño y pedir la cuenta.
+
+Para controlar qué deseo tiene cada cliente, se utilizará una cola de deseos. Cada vez que un cliente termine su deseo, se le asignará otro de forma aleatoria (`SelectRandomWish`).
+
+Los deseos que tendrán los clientes son:
+
+- **Ver el menú**: si previamente no lo han visto, leerán el menú. Esto desbloqueará el deseo de pedir comida y bebida.
+
+```mermaid
+flowchart TD
+    A(("WatchMenu")) --> B(("->"))
+    B -->C[DisplayMenu]
+```
+
+- **Pedir comida**: si previamente han visto el menú, podrán pedir un plato de comida.
+
+```mermaid
+flowchart TD
+    A(("OrderFood")) --> B(("?"))
+    B -->C[Sushi]
+    B -->D[Hamburger]
+    B -->E[Pizza]
+    B -->F[...]
+```
+
+- **Coger bebida**: si previamente han visto el menú, podrán coger una bebida.
+
+```mermaid
+flowchart TD
+    A(("TakeDrink")) --> B(("->"))
+    B -->C(("?"))
+    C -->D[Water]
+    C -->E[Beer]
+    C -->F[Soda]
+    C -->G[...]
+    B -->H[TakeDrink]
+    B -->I[MoveToTable]
+```
+
+Una vez cogida la bebida, se les sumará en la cuenta del cliente el precio de la bebida `ChargedMoney`.
+
+- **Ir al baño**: si previamente han tomado algo ya sea comida o bebida, podrán ir al baño.
+
+```mermaid
+flowchart TD
+    A(("GoToBathroom")) --> B(("->"))
+    B -->C[MoveToBathroom]
+```
+
+- **Pedir la cuenta**: si previamente han tomado algo ya sea comida o bebida, podrán pedir la cuenta.
+
+```mermaid
+flowchart TD
+    A(("AskForBill")) --> B(("->"))
+    B -->C[AskForBill]
+```
 
 ## Pruebas y métricas
 
-| Pruebas | Métricas | Links |
-|:-:|:-:|:-:|
-| **Característica A** | | |
-|  | - <br> - | []() |
+| Pruebas | Links |
+|:-:|:-:|
+| **Característica A** | |
+| Al pulsar el `SPACE`, se intentará controlar a `Jorge` clicando en la escena. Al pulsar nuevamente el `SPACE`, `Jorge` volverá a ser manejado por la IA | []() |
 
-| Pruebas | Métricas | Links |
-|:-:|:-:|:-:|
-| **Característica B** | | |
-|  | - <br> - | []() |
+| Pruebas | Links |
+|:-:|:-:|
+| **Característica B** | |
+| Comprobar que los clientes miren el menú antes de cualquier otro deseo | []() |
+| Comprobar que los clientes pidan comida y bebida aleatorios. Primero, solo dando una opción de comida y bebida. Luego, con más de una opción. | []() |
+| Comprobar que los clientes pidan la cuenta o vayan al baño después de haber pedido algo | []() |
 
-| Pruebas | Métricas | Links |
-|:-:|:-:|:-:|
-| **Característica C** | | |
-|  | - <br> - | []() |
+| Pruebas | Links |
+|:-:|:-:|
+| **Característica C** | |
+| Asignar a varios clientes el deseo de ir al baño. Comprobar que se genera una cola de espera. | []() |
+| Comprobar que después de un determinado tiempo, se libera un lavabo. | []() |
 
-| Pruebas | Métricas | Links |
-|:-:|:-:|:-:|
-| **Característica D** | | |
-|  | - <br> - | []() |
+| Pruebas | Links |
+|:-:|:-:|
+| **Característica D** | |
+| Aplicar diferentes tiempos a cada acción. Comprobarlos desde la consola. | []() |
 
 | Pruebas | Métricas | Links |
 |:-:|:-:|:-:|
 | **Característica E** | | |
-|  | - <br> - | []() |
+| Comprobar el estado de enfado de los clientes. Manejando a `Jorge` sin IA, dejar que el tiempo de espera de los clientes aumente y se enfaden. | []() |
 
 ## Producción
 
@@ -77,16 +167,12 @@ Observa la tabla de abajo para ver el estado y las fechas de realización de las
 
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
-| ✔️ | Diseño: Primer borrador | ..-05-2024 |
-| ✔️ | Característica A | ..-05-2024 |
-| ✔️ | Característica B | ..-05-2024 |
-| ✔️ | Característica C | ..-05-2024 |
-| ✔️ | Característica D | ..-05-2024 |
-| ✔️ | Característica E | ..-05-2024 |
-|  |  **OTROS**  | |
-|  |  | ..-05-2024 |
-|  |  **OPCIONALES**  | |
-|  |  | ..-05-2024 |
+| ✔️ | Diseño: Primer borrador | 15-05-2024 |
+|  | Característica A | ..-05-2024 |
+|  | Característica B | ..-05-2024 |
+|  | Característica C | ..-05-2024 |
+|  | Característica D | ..-05-2024 |
+|  | Característica E | ..-05-2024 |
 
 ## Licencia
 
