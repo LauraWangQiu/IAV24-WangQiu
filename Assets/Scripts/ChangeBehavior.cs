@@ -4,6 +4,7 @@ public class ChangeBehavior : MonoBehaviour
 {
     [SerializeField] private BehaviorExecutor first;
     [SerializeField] private BehaviorExecutor second;
+    private Register register;
 
     void Start()
     {
@@ -16,6 +17,12 @@ public class ChangeBehavior : MonoBehaviour
         {
             Debug.LogError("Please assign the BehaviorExecutor components to the fields in the inspector.");
         }
+
+        register = GetComponent<Register>();
+        if (register == null)
+        {
+            Debug.LogError("Register component not found.");
+        }
     }
 
     void Update()
@@ -25,6 +32,7 @@ public class ChangeBehavior : MonoBehaviour
             Debug.Log("Changing behavior...");
             first.enabled = !first.enabled;
             second.enabled = !second.enabled;
+            register.activeExecutor = first.enabled ? first : second;
         }
     }
 }

@@ -14076,6 +14076,7 @@ GameObject:
   - component: {fileID: 1212112267}
   - component: {fileID: 1212112264}
   - component: {fileID: 1212112266}
+  - component: {fileID: 1212112268}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -14320,8 +14321,9 @@ MonoBehaviour:
     intParams: 
     intParamsNames: []
     intParamsLostDefaultValue: 
-    boolParams: 
-    boolParamsNames: []
+    boolParams: 00
+    boolParamsNames:
+    - var
     boolParamsLostDefaultValue: 
     floatParams: []
     floatParamsNames: []
@@ -14364,6 +14366,20 @@ MonoBehaviour:
     quaternionParams: []
     quaternionParamsNames: []
     quaternionParamsLostDefaultValue: 
+--- !u!114 &1212112268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212112258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59fa813c55923b41a900210dcbdc5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  first: {fileID: 1212112263}
+  second: {fileID: 1212112267}
 --- !u!1001 &1216171857
 PrefabInstance:
   m_ObjectHideFlags: 0
