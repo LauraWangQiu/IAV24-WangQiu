@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR;
 
 public class SetOnTrigger : MonoBehaviour
 {
@@ -37,11 +38,25 @@ public class SetOnTrigger : MonoBehaviour
             if (register != null && register.activeExecutor != null)
             {
                 register.activeExecutor.enabled = true;
+                if (register.activeExecutor.behavior.brickName == 
+                    "Assets/BehaviorBricks/Samples/QuickStartGuide/" +
+                    "Done/Resources/Behaviors/DoneAbortableClickAndGo.asset")
+                {
+                    int index = register.activeExecutor.blackboard.vector3ParamsNames.IndexOf("selectedPosition");
+                    if (index != -1)
+                    {
+                        register.activeExecutor.blackboard.vector3Params[index] = exit.transform.position;
+                    }
+                }
+
+                register.SetState(Register.State.IDLE);
+                register.SetExitPosition(exit.transform.position);
             }
             NavMeshAgent agent = currentSitObject.GetComponent<NavMeshAgent>();
             if (agent != null)
             {
                 agent.enabled = true;
+                agent.isStopped = true;
             }
             available = true;
             currentSitObject = null;
@@ -62,6 +77,7 @@ public class SetOnTrigger : MonoBehaviour
             if (register != null && register.activeExecutor != null)
             {
                 register.activeExecutor.enabled = false;
+                register.SetState(Register.State.SIT);
             }
             NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
             if (agent != null)

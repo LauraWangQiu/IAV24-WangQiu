@@ -19,7 +19,11 @@ public class ChangeBehavior : MonoBehaviour
         }
 
         register = GetComponent<Register>();
-        if (register == null)
+        if (register != null)
+        {
+            register.activeExecutor = first;
+        }
+        else
         {
             Debug.LogError("Register component not found.");
         }
@@ -27,7 +31,9 @@ public class ChangeBehavior : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Change behavior when pressing space key and the register is not in SIT state
+        if (Input.GetKeyDown(KeyCode.Space) && first != null && second != null && 
+            register != null && register.currentState != Register.State.SIT)
         {
             Debug.Log("Changing behavior...");
             first.enabled = !first.enabled;

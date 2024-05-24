@@ -14183,7 +14183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTasksPerTick: 500
-  behavior: {fileID: 11400000, guid: 94f7b8d9d503df647aec1b5cdce03b4b, type: 2}
+  behavior: {fileID: 11400000, guid: 47575b960d6b19a4fb39a86a9e7cb55f, type: 2}
   paused: 0
   restartWhenFinished: 0
   blackboard:
@@ -14204,8 +14204,10 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 963194227}
+    - {fileID: 1212112266}
     objectParamsNames:
     - camera
+    - register
     objectParamsLostDefaultValue: 
     layerMaskParams:
     - serializedVersion: 2
@@ -14301,6 +14303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeExecutor: {fileID: 1212112263}
+  currentState: 1
 --- !u!114 &1212112267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14321,9 +14324,8 @@ MonoBehaviour:
     intParams: 
     intParamsNames: []
     intParamsLostDefaultValue: 
-    boolParams: 00
-    boolParamsNames:
-    - var
+    boolParams: 
+    boolParamsNames: []
     boolParamsLostDefaultValue: 
     floatParams: []
     floatParamsNames: []
@@ -14334,8 +14336,10 @@ MonoBehaviour:
     colorParams: []
     colorParamsNames: []
     colorParamsLostDefaultValue: 
-    objectParams: []
-    objectParamsNames: []
+    objectParams:
+    - {fileID: 1445219815}
+    objectParamsNames:
+    - target
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -15998,6 +16002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeExecutor: {fileID: 0}
+  currentState: 0
 --- !u!1001 &1322427131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17337,6 +17342,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2467845069284678478, guid: 3c0b460c20e5c954d8523df4157882d1, type: 3}
   m_PrefabInstance: {fileID: 1443846954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1445219815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4984348835542864326, guid: 28f3adadfa8e13d41bd2af81c2170f85, type: 3}
+  m_PrefabInstance: {fileID: 1552422489}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1452575696
 PrefabInstance:

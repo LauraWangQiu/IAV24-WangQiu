@@ -15,37 +15,45 @@ MonoBehaviour:
   brickName: Assets/Behaviors/Waiter.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"d29791669e443ac468980ca54d57042e\" nextId=\"6\">\r\n      <root>\r\n       
+    id=\"0\" guid=\"d29791669e443ac468980ca54d57042e\" nextId=\"8\">\r\n      <root>\r\n       
     <RepeatDecorator id=\"4\" />\r\n      </root>\r\n      <inputParams>\r\n       
-    <inputValues>\r\n          <entry name=\"var\" type=\"System.Boolean\" isBlackboard=\"False\"
-    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
-    <outputValues>\r\n          <entry name=\"var\" type=\"System.Boolean\" isBlackboard=\"True\"
-    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
-    />\r\n    </BehaviorTree>\r\n    <RepeatDecorator id=\"4\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
-    <child>\r\n        <ActionNode id=\"5\" />\r\n      </child>\r\n      <inputParams
-    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
-    <ActionNode id=\"5\" action=\"Basic/SetBool\">\r\n      <inputParams>\r\n       
-    <inputValues>\r\n          <entry name=\"value\" type=\"System.Boolean\" isBlackboard=\"False\"
-    value=\"True\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"var\" type=\"System.Boolean\"
-    isBlackboard=\"True\" blackboard=\"var\" />\r\n        </outputValues>\r\n     
-    </outputParams>\r\n      <localParams />\r\n    </ActionNode>\r\n  </runtimeInfo>\r\n 
-    <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"Waiter\" _description=\"Camarero\"
-    _removeIfClosed=\"False\">\r\n      <_rootList>\r\n        <elem>\r\n         
-    <RepeatDecorator id=\"4\" />\r\n        </elem>\r\n        <elem>\r\n         
-    <ActionNode id=\"5\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
-    <nodes>\r\n          <RepeatDecorator id=\"4\" />\r\n          <ActionNode id=\"5\"
-    />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <RepeatDecorator
-    id=\"4\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"530.25 304.75\" name=\"Repeat\" description=\"Repeats the execution
-    of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree
-    id=\"0\" />\r\n          <RepeatDecorator id=\"4\" />\r\n        </data>\r\n     
-    </_data>\r\n    </RepeatDecorator>\r\n    <ActionNode id=\"5\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"True\" position=\"509 416\" name=\"Basic/SetBool\"
-    description=\"Sets a value to a boolean variable\" cardinality=\"0\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"5\" />\r\n          <RepeatDecorator
-    id=\"4\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.8
+    <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator
+    id=\"4\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
+    <SequenceNode id=\"6\" />\r\n      </child>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <SequenceNode
+    id=\"6\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode id=\"7\"
+    />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
+    id=\"7\" action=\"Navigation/MoveToGameObject\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"target\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n 
+    </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"Waiter\"
+    _description=\"Camarero\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n       
+    <elem>\r\n          <RepeatDecorator id=\"4\" />\r\n        </elem>\r\n       
+    <elem>\r\n          <SequenceNode id=\"6\" />\r\n        </elem>\r\n        <elem>\r\n         
+    <ActionNode id=\"7\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
+    <nodes>\r\n          <RepeatDecorator id=\"4\" />\r\n          <SequenceNode
+    id=\"6\" />\r\n          <ActionNode id=\"7\" />\r\n        </nodes>\r\n     
+    </_nodes>\r\n    </BehaviorTree>\r\n    <RepeatDecorator id=\"4\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"False\" position=\"652.9334 320.5167\" name=\"Repeat\"
+    description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"4\" />\r\n       
+    </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"6\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"636.6834
+    436.7667\" name=\"Sequence\" description=\"Executes all its children in sequence
+    until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"6\" />\r\n         
+    <RepeatDecorator id=\"4\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
+    <ActionNode id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"607.5171 558.0167\" name=\"Navigation/MoveToGameObject\" description=\"Moves
+    the game object towards a given target by using a NavMeshAgent\" cardinality=\"0\"
+    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
+    id=\"7\" />\r\n          <SequenceNode id=\"6\" />\r\n        </data>\r\n     
+    </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+  zoom: 0.6
   subslist:
   - {fileID: 11400000, guid: 296b6e51cf3a67a4f92361c39d732304, type: 2}
   _guid: d29791669e443ac468980ca54d57042e
