@@ -9,6 +9,8 @@ public class Register : MonoBehaviour
 
     private Vector3 exitPosition;
 
+    public GameObject wish;
+
     void Start()
     {
         if (activeExecutor == null)
