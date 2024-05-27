@@ -63,49 +63,34 @@ public class SetOnTrigger : MonoBehaviour
         {
             rb.isKinematic = false;
         }
+        ActivateBehavior();
         Register register = currentSitObject.GetComponent<Register>();
         if (register != null && register.activeExecutor != null)
         {
-            register.activeExecutor.enabled = true;
-            if (register.activeExecutor.behavior.brickName ==
-                "Assets/BehaviorBricks/Samples/QuickStartGuide/" +
-                "Done/Resources/Behaviors/DoneAbortableClickAndGo.asset")
-            {
-                int index = register.activeExecutor.blackboard.vector3ParamsNames.IndexOf("selectedPosition");
-                if (index != -1)
-                {
-                    register.activeExecutor.blackboard.vector3Params[index] = exit.transform.position;
-                }
-            }
-
             register.SetState(Register.State.IDLE);
             register.SetExitPosition(exit.transform.position);
         }
-        NavMeshAgent agent = currentSitObject.GetComponent<NavMeshAgent>();
-        if (agent != null)
-        {
-            agent.enabled = true;
-            agent.isStopped = true;
-        }
         currentSitObject = null;
         available = true;
+
+        BoxCollider collider = GetComponent<BoxCollider>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+            StartCoroutine(ReactivateColliderAfterDelay(2.0f));
+        }
     }
 
     private void SelectBehavior()
     {
-        if (!available && currentSitObject != null)
+        Register register = currentSitObject.GetComponent<Register>();
+        if (!available && currentSitObject != null && register.wishAccomplished)
         {
             Debug.Log("A random behavior has been selected");
             WishManager wishManager = currentSitObject.GetComponent<WishManager>();
             if (wishManager != null)
             {
                 wishManager.SelectRandomBehavior();
-                BoxCollider collider = GetComponent<BoxCollider>();
-                if (collider != null)
-                {
-                    collider.enabled = false;
-                    StartCoroutine(ReactivateColliderAfterDelay(2.0f));
-                }
             }
         }
     }
@@ -117,7 +102,21 @@ public class SetOnTrigger : MonoBehaviour
         if (collider != null)
         {
             collider.enabled = true;
-            Debug.Log("Collider reactivated");
+        }
+    }
+
+    public void ActivateBehavior()
+    {
+        Register register = currentSitObject.GetComponent<Register>();
+        if (register != null && register.activeExecutor != null)
+        {
+            register.activeExecutor.enabled = true;
+        }
+        NavMeshAgent agent = currentSitObject.GetComponent<NavMeshAgent>();
+        if (agent != null)
+        {
+            agent.enabled = true;
+            agent.isStopped = true;
         }
     }
 }

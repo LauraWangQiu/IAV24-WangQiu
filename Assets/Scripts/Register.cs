@@ -12,6 +12,7 @@ public class Register : MonoBehaviour
     [SerializeField] private Wishes wishes;
     public GameObject wish;
     public Sprite wishSprite;
+    public bool wishAccomplished = true;
     public float owingMoney = 0;
 
     private void Start()
@@ -54,5 +55,6 @@ public class Register : MonoBehaviour
         }
         wish = null;
         wishSprite = null;
+        wishAccomplished = true;
     }
 }

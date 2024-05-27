@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTasksPerTick: 500
-  behavior: {fileID: 0}
+  behavior: {fileID: 11400000, guid: c19bd4e754736564ea4a42b218d156a5, type: 2}
   paused: 0
   restartWhenFinished: 0
   blackboard:
@@ -396,8 +396,16 @@ MonoBehaviour:
     colorParams: []
     colorParamsNames: []
     colorParamsLostDefaultValue: 
-    objectParams: []
-    objectParamsNames: []
+    objectParams:
+    - {fileID: 887885938454876536}
+    - {fileID: 5959661674729835722, guid: 9e0e728ad620bf244b89e34930b844b2, type: 3}
+    - {fileID: 1080854471979460, guid: 0683ba921c1a542ea8dae92b271c1e18, type: 3}
+    - {fileID: 4601807697355163923, guid: 494ce0ae26952704c8a93fd02d125112, type: 3}
+    objectParamsNames:
+    - register
+    - burguer
+    - donut
+    - fries
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -596,6 +604,7 @@ MonoBehaviour:
   wishes: {fileID: 8486657899364957828}
   wish: {fileID: 0}
   wishSprite: {fileID: 0}
+  wishAccomplished: 1
   owingMoney: 0
 --- !u!114 &8486657899364957828
 MonoBehaviour:
@@ -619,6 +628,15 @@ MonoBehaviour:
   - gameObject: {fileID: 5344453670103961128, guid: 1dc2de87675d11142a9921d2ee2b12ac, type: 3}
     sprite: {fileID: 21300000, guid: 3a21136eda362134b815f462dff5d0f2, type: 3}
     cost: 5
+  - gameObject: {fileID: 5959661674729835722, guid: 9e0e728ad620bf244b89e34930b844b2, type: 3}
+    sprite: {fileID: 21300000, guid: 5da58b4bb004ca54b856c86111e95ef4, type: 3}
+    cost: 10
+  - gameObject: {fileID: 4601807697355163923, guid: 494ce0ae26952704c8a93fd02d125112, type: 3}
+    sprite: {fileID: 21300000, guid: 53facf05958bf124d97f7ae44527ac9e, type: 3}
+    cost: 3
+  - gameObject: {fileID: 1080854471979460, guid: 0683ba921c1a542ea8dae92b271c1e18, type: 3}
+    sprite: {fileID: 21300000, guid: 81f125b9d720f7b47af77d6b6de7c1df, type: 3}
+    cost: 3
 --- !u!114 &4429552917641547383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +652,7 @@ MonoBehaviour:
   register: {fileID: 887885938454876536}
   behaviors:
   - {fileID: 4052750511404064268}
+  - {fileID: 2103697849339456794}
   image: {fileID: 4292237706298341243}
 --- !u!1 &7426085947532704819
 GameObject:

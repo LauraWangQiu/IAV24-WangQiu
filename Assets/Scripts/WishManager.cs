@@ -42,12 +42,23 @@ public class WishManager : MonoBehaviour
         }
         int selected = Random.Range(0, behaviors.Count);
         register.activeExecutor = behaviors[selected];
+        register.wishAccomplished = false;
+
         if (register.seat != null)
         {
             SetOnTrigger seat = register.seat.GetComponent<SetOnTrigger>();
             if (seat != null)
             {
-                seat.StandUp();
+                if (register.activeExecutor.behavior.brickName == "Assets/Behaviors/OrderFood.asset" ||
+                    register.activeExecutor.behavior.brickName == "Assets/Behaviors/AskForBill.asset")
+                {
+                    seat.ActivateBehavior();
+                }
+                // Se levanta si no es pedir comida o pedir la cuenta
+                else
+                {
+                    seat.StandUp();
+                }
             }
         }
     }

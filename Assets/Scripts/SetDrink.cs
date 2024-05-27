@@ -12,7 +12,7 @@ public class SetDrink : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Register register = other.GetComponent<Register>();
-        if (register != null && register.wish == gameObject)
+        if (register != null && register.wish.tag == gameObject.tag)
         {
             Debug.Log("Drink set");
             if (col != null)

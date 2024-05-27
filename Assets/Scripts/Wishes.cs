@@ -13,14 +13,6 @@ public class Wishes : MonoBehaviour
 {
     public List<GameObjectWithSprite> wishes = new List<GameObjectWithSprite>();
 
-    void Start()
-    {
-        foreach (var wish in wishes)
-        {
-            Debug.Log(wish.gameObject.name + " has sprite " + wish.sprite.name);
-        }
-    }
-
     public Sprite GetWishSprite(GameObject wish)
     {
         foreach (var wishWithSprite in wishes)

@@ -9,6 +9,9 @@ TagManager:
   - Lemonade
   - Coke
   - Soda
+  - Burger
+  - Fries
+  - Doughnut
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Player
   - Client
   - Drink
-  - 
+  - Food
   - 
   - 
   - 
