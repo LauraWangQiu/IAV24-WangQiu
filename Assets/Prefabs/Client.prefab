@@ -611,13 +611,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wishes:
   - gameObject: {fileID: 1915065632980748, guid: 7b9e9044605a04568a0c9d41cebd7913, type: 3}
-    sprite: {fileID: 21300000, guid: adbd6b6d02ed54f02bfd0485a39d2ea8, type: 3}
+    sprite: {fileID: 21300000, guid: be6d0085e3edaaf4785d36c342aa0b26, type: 3}
     cost: 2
   - gameObject: {fileID: 1872261569430189388, guid: 51d6319d2b9742640a6b2bb01da1dc59, type: 3}
-    sprite: {fileID: 21300000, guid: f9914dbf14a73472d942a44b9bdc134d, type: 3}
+    sprite: {fileID: 21300000, guid: ff9070cc0e3877c4ebfadbbc9d8c2184, type: 3}
     cost: 3
   - gameObject: {fileID: 5344453670103961128, guid: 1dc2de87675d11142a9921d2ee2b12ac, type: 3}
-    sprite: {fileID: 21300000, guid: 33cbf0735563a4fe8a08770d84691804, type: 3}
+    sprite: {fileID: 21300000, guid: 3a21136eda362134b815f462dff5d0f2, type: 3}
     cost: 5
 --- !u!114 &4429552917641547383
 MonoBehaviour:

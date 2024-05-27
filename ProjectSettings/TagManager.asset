@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fluid
   - Client
+  - Lemonade
+  - Coke
+  - Soda
   layers:
   - Default
   - TransparentFX

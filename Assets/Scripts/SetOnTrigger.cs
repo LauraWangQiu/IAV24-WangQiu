@@ -37,7 +37,6 @@ public class SetOnTrigger : MonoBehaviour
                 register.activeExecutor.enabled = false;
                 register.seat = gameObject;
                 register.SetState(Register.State.SIT);
-                register.WishAccomplished();
             }
             NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
             if (agent != null)

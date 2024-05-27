@@ -37,7 +37,7 @@ public class Wishes : MonoBehaviour
     {
         foreach (var wishWithSprite in wishes)
         {
-            if (wishWithSprite.gameObject == wish)
+            if (wishWithSprite.gameObject.CompareTag(wish.tag))
             {
                 return wishWithSprite.cost;
             }

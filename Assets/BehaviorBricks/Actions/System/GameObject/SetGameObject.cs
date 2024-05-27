@@ -23,6 +23,11 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             setobject = gameobject;
+
+            if (register != null)
+            {
+                register.wish = gameobject;
+            }
         }
 
         public override TaskStatus OnUpdate()
