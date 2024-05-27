@@ -2315,6 +2315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Client (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7333154428204532315, guid: c939793625e9e5f40aa518f094657b57, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8486657899364957828, guid: c939793625e9e5f40aa518f094657b57, type: 3}
       propertyPath: wishes.Array.data[0].gameObject
       value: 
@@ -14760,6 +14764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeExecutor: {fileID: 1212112263}
   currentState: 1
+  seat: {fileID: 0}
   wishes: {fileID: 0}
   wish: {fileID: 0}
   wishSprite: {fileID: 0}
@@ -24780,6 +24785,10 @@ PrefabInstance:
       propertyPath: blackboard.objectParams.Array.data[0]
       value: 
       objectReference: {fileID: 1938953976}
+    - target: {fileID: 4052750511404064268, guid: c939793625e9e5f40aa518f094657b57, type: 3}
+      propertyPath: blackboard.objectParams.Array.data[2]
+      value: 
+      objectReference: {fileID: 343941663}
     - target: {fileID: 4052750511404064268, guid: c939793625e9e5f40aa518f094657b57, type: 3}
       propertyPath: blackboard.objectParams.Array.data[3]
       value: 

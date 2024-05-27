@@ -6,6 +6,7 @@ public class Register : MonoBehaviour
     public enum State { IDLE, MOVING, SIT };
     public State currentState;
 
+    public GameObject seat;
     private Vector3 exitPosition;
 
     [SerializeField] private Wishes wishes;

@@ -12,7 +12,15 @@ namespace BBCore.Conditions
         [Help("Reference to the GameObject")]
         public GameObject obj;
 
-		public override bool Check()
+        [InParam("Register")]
+        [Help("Reference to register of the GameObject")]
+        public Register register;
+
+        [OutParam("Seat")]
+        [Help("Reference to seat")]
+        public GameObject seat;
+
+        public override bool Check()
 		{
             if (obj == null)
             {
@@ -24,7 +32,13 @@ namespace BBCore.Conditions
                 Debug.LogError("RegisterObject component not found");
                 return false;
             }
-			return !registerObject.caught;
+            if (register == null || register.seat == null)
+            {
+                Debug.LogError("Register component or seat not found");
+                return false;
+            }
+            seat = register.seat;
+			return !registerObject.caught && register.seat != null;
 		}
     }
 }

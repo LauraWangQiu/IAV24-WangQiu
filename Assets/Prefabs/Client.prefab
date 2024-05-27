@@ -254,8 +254,10 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 0}
+    - {fileID: 887885938454876536}
     objectParamsNames:
     - restaurantRegister
+    - register
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -588,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeExecutor: {fileID: 5494973967553260413}
   currentState: 1
+  seat: {fileID: 0}
   wishes: {fileID: 8486657899364957828}
   wish: {fileID: 0}
   wishSprite: {fileID: 0}
@@ -627,6 +630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   register: {fileID: 887885938454876536}
+  behaviors:
+  - {fileID: 4052750511404064268}
   image: {fileID: 4292237706298341243}
 --- !u!1 &7426085947532704819
 GameObject:
