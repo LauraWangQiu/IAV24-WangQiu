@@ -12,6 +12,7 @@ public class SetDrink : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Register register = other.GetComponent<Register>();
+        // MEJORAR: realizar la comparación con un id único en lugar de con el tag
         if (register != null && register.wish.tag == gameObject.tag)
         {
             Debug.Log("Drink set");

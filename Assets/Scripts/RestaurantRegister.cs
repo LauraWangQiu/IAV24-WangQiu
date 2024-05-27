@@ -5,6 +5,8 @@ public class RestaurantRegister : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> seats = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> clients = new List<GameObject>();
 
     private GameObject nextAvailableSeat;
 

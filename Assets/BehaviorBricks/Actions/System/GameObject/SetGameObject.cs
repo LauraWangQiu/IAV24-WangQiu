@@ -22,6 +22,11 @@ namespace BBUnity.Actions
 
         public override void OnStart()
         {
+            RegisterObject registerObject = gameobject.GetComponent<RegisterObject>();
+            if (registerObject != null)
+            {
+                registerObject.client = register.gameObject;
+            }
             setobject = gameobject;
 
             if (register != null)

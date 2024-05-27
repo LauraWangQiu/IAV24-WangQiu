@@ -1,11 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Register : MonoBehaviour
 {
+    // Waiter & Clients
     public BehaviorExecutor activeExecutor;
     public enum State { IDLE, MOVING, SIT };
     public State currentState;
 
+    // Waiter
+    public List<GameObject> petitions = new List<GameObject>();
+
+    // Clients
     public GameObject seat;
     private Vector3 exitPosition;
 
@@ -53,8 +59,13 @@ public class Register : MonoBehaviour
         {
             owingMoney += wishes.GetWishCost(wish);
         }
+        WishServed();
+        wishAccomplished = true;
+    }
+
+    public void WishServed()
+    {
         wish = null;
         wishSprite = null;
-        wishAccomplished = true;
     }
 }
