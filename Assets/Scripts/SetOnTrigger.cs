@@ -9,7 +9,7 @@ public class SetOnTrigger : MonoBehaviour
     [SerializeField] private float randomMax = 1000.0f;
     private GameObject currentSitObject;
     public bool available = true;
-    public bool assigned = false;
+    public bool assignedbehavior = false;
 
     void Start()
     {
@@ -21,10 +21,7 @@ public class SetOnTrigger : MonoBehaviour
 
     void Update()
     {
-        if (!available && currentSitObject != null)
-        {
-            Invoke("SelectRandomBehavior", Random.Range(0, randomMax));
-        }
+        Invoke("SelectBehavior", Random.Range(0, randomMax));
     }
 
     void OnTriggerEnter(Collider other)
@@ -92,17 +89,19 @@ public class SetOnTrigger : MonoBehaviour
             agent.enabled = true;
             agent.isStopped = true;
         }
-        available = true;
         currentSitObject = null;
     }
 
-    private void SelectRandomBehavior()
+    private void SelectBehavior()
     {
-        Debug.Log("A random behavior has been selected");
-        WishManager wishManager = currentSitObject.GetComponent<WishManager>();
-        if (wishManager != null)
+        if (!available && currentSitObject != null)
         {
-            wishManager.SelectRandomBehavior();
+            Debug.Log("A random behavior has been selected");
+            WishManager wishManager = currentSitObject.GetComponent<WishManager>();
+            if (wishManager != null)
+            {
+                wishManager.SelectRandomBehavior();
+            }
         }
     }
 }

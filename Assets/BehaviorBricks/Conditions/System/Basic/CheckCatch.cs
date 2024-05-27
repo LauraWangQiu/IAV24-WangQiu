@@ -38,7 +38,8 @@ namespace BBCore.Conditions
                 return false;
             }
             seat = register.seat;
-			return !registerObject.caught && register.seat != null;
+            register.wish = obj;
+			return !registerObject.caught && seat != null;
 		}
     }
 }

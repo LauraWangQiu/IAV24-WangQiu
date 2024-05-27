@@ -32,7 +32,7 @@ namespace BBUnity.Actions
         /// <remarks>Installed a GameObject in the position and type dice.</remarks>
         public override void OnStart()
         {
-            original = GameObject.Instantiate(original,position,original.transform.rotation) as GameObject;
+            instantiated = GameObject.Instantiate(original,position,original.transform.rotation) as GameObject;
         }
 
         /// <summary>Method of Update of Instantiate.</summary>

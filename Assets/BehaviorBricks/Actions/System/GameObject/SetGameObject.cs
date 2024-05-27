@@ -23,14 +23,6 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             setobject = gameobject;
-            if (register != null)
-            {
-                register.wish = gameobject;
-            }
-            else
-            {
-                Debug.LogWarning("Register not found");
-            }
         }
 
         public override TaskStatus OnUpdate()
