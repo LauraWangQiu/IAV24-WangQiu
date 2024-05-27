@@ -4,6 +4,10 @@
 
 Este proyecto pertenece a la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos de la UCM.
 
+## Objetivo
+
+Los objetivos de este proyecto se precisan en el siguiente [link](https://narratech.com/es/docencia/prueba/).
+
 ## Contexto
 
 `Jorge` es un camarero que trabaja con sus padres en el mismo restaurante. A `Jorge` le han dejado todo el salón para él solo durante un ajetreado domingo. ¿Será capaz de apañárselas?
@@ -36,14 +40,10 @@ Los clientes se enfadarán si `Jorge` tarda mucho en atenderles o servirles los 
 
 La versión de Unity utilizada es **Unity 2022.3.5f1**.
 
-| Clases | Información |
-| - | - |
-| SelectRandomWish | Activa el comportamiento elegido aleatoriamente y desactiva el resto. |
-| Food | Estructura de datos para los platos de comida. Tienen asignado un cliente `Client` y un tiempo para enfriamiento `TimeToCoolDown`. |
-| Client | Estructura de datos para los clientes. Tienen asignado un deseo `Wish`, un tiempo de espera `WaitingTime`, una mesa `Table` y el dinero gastado hasta el momento `ChargedMoney`. |
-| Order | Estructura de datos para los pedidos de los clientes. Tienen asignado un cliente `Client` |
-| Register | Listas ordenadas para llevar el control de los pedidos a llevar a cabo, de los cobros a realizar y de los clientes que están esperando.|
-| Time | Estructura de datos para controlar el tiempo de las acciones. |
+Partimos de un proyecto en blanco con las siguientes características:
+
+- **ProyectoFinal**: escena en la que se desarrollará el proyecto.
+- **BehaviorBricks**: asset pack de Behavior Bricks para Unity.
 
 ## Diseño de la solución
 
@@ -80,37 +80,33 @@ Para controlar qué deseo tiene cada cliente, se utilizará una cola de deseos. 
 
 Los deseos que tendrán los clientes son:
 
-- **Ver el menú**: si previamente no lo han visto, leerán el menú. Esto desbloqueará el deseo de pedir comida y bebida.
+- **Pedir comida**: si previamente se han sentado, podrán pedir un plato de comida.
 
 ```mermaid
 flowchart TD
-    A(("WatchMenu")) --> B(("->"))
-    B -->C[DisplayMenu]
-```
-
-- **Pedir comida**: si previamente han visto el menú, podrán pedir un plato de comida.
-
-```mermaid
-flowchart TD
-    A(("OrderFood")) --> B(("?"))
-    B -->C[Sushi]
-    B -->D[Hamburger]
-    B -->E[Pizza]
+    A(("OrderFood")) --> B(("~?"))
+    B -->C[Burger]
+    B -->D[Fries]
+    B -->E[Doughnut]
     B -->F[...]
 ```
 
-- **Coger bebida**: si previamente han visto el menú, podrán coger una bebida.
+- **Coger bebida**: si previamente se han sentado, podrán coger una bebida.
 
 ```mermaid
 flowchart TD
     A(("TakeDrink")) --> B(("->"))
-    B -->C(("?"))
-    C -->D[Water]
-    C -->E[Beer]
-    C -->F[Soda]
+    B -->C(("~?"))
+    C -->D[Soda]
+    C -->E[Coke]
+    C -->F[Lemonade]
     C -->G[...]
-    B -->H[TakeDrink]
-    B -->I[MoveToTable]
+    B -->H[MoveToDrinkMachine]
+    B -->I[GetInstancePosition]
+    B -->J[Instantiate]
+    B -->K(("?"))
+    K -->|CheckCatch| L[TakeDrink]
+    B -->M[MoveToTable]
 ```
 
 Una vez cogida la bebida, se les sumará en la cuenta del cliente el precio de la bebida `ChargedMoney`.
@@ -198,3 +194,4 @@ PacktPublishing/Unity-Artificial-Intelligence-Programming-Fifth-Edition: Unity A
 - Fast Food Restaurant Kit: https://assetstore.unity.com/packages/3d/environments/fast-food-restaurant-kit-239419
 - Cutlery: https://assetstore.unity.com/packages/3d/props/food/cutlery-silverware-pbr-106932
 - Customizable Kitchen Pack: https://assetstore.unity.com/packages/3d/props/interior/customizable-kitchen-pack-22269
+- Food Pack | Free Demo: https://assetstore.unity.com/packages/3d/props/food/food-pack-free-demo-225294
