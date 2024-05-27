@@ -153,9 +153,9 @@ MonoBehaviour:
   tagName: Client
   set: {fileID: 6692312663545188893}
   exit: {fileID: 6900604249114552458}
-  randomMax: 1000
+  randomMin: 2
+  randomMax: 5
   available: 1
-  assigned: 0
 --- !u!1 &5944154087189558018
 GameObject:
   m_ObjectHideFlags: 0

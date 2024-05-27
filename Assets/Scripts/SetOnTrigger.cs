@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class SetOnTrigger : MonoBehaviour
 {
     [SerializeField] private string tagName;
     [SerializeField] private GameObject set;
     [SerializeField] private GameObject exit;
-    [SerializeField] private float randomMax = 1000.0f;
+    [SerializeField] private float randomMin = 2.0f;
+    [SerializeField] private float randomMax = 5.0f;
     private GameObject currentSitObject;
+    private GameObject assignedObject;
     public bool available = true;
-    public bool assignedbehavior = false;
 
     void Start()
     {
@@ -19,14 +21,9 @@ public class SetOnTrigger : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        Invoke("SelectBehavior", Random.Range(0, randomMax));
-    }
-
     void OnTriggerEnter(Collider other)
     {
-        if (set != null && other.CompareTag(tagName))
+        if (set != null && other.CompareTag(tagName) && (assignedObject == null || assignedObject == other.gameObject))
         {
             other.transform.SetPositionAndRotation(set.transform.position, set.transform.rotation);
             Rigidbody rb = other.GetComponent<Rigidbody>();
@@ -49,6 +46,8 @@ public class SetOnTrigger : MonoBehaviour
             }
             available = false;
             currentSitObject = other.gameObject;
+            assignedObject = other.gameObject;
+            Invoke("SelectBehavior", Random.Range(randomMin, randomMax));
         }
     }
 
@@ -90,6 +89,7 @@ public class SetOnTrigger : MonoBehaviour
             agent.isStopped = true;
         }
         currentSitObject = null;
+        available = true;
     }
 
     private void SelectBehavior()
@@ -101,7 +101,24 @@ public class SetOnTrigger : MonoBehaviour
             if (wishManager != null)
             {
                 wishManager.SelectRandomBehavior();
+                BoxCollider collider = GetComponent<BoxCollider>();
+                if (collider != null)
+                {
+                    collider.enabled = false;
+                    StartCoroutine(ReactivateColliderAfterDelay(2.0f));
+                }
             }
+        }
+    }
+
+    IEnumerator ReactivateColliderAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        BoxCollider collider = GetComponent<BoxCollider>();
+        if (collider != null)
+        {
+            collider.enabled = true;
+            Debug.Log("Collider reactivated");
         }
     }
 }
