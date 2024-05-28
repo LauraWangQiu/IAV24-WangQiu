@@ -179,7 +179,7 @@ MonoBehaviour:
     the game object\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"9\" />\r\n          <RandomSelectorNode
     id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    <ActionNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
     position=\"133.4054 574.0235\" name=\"GameObject/SetGameObject\" description=\"Sets
     the game object\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"10\" />\r\n          <RandomSelectorNode

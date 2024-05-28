@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class RestaurantRegister : MonoBehaviour
 {
-    [SerializeField]
-    private List<GameObject> seats = new List<GameObject>();
-    [SerializeField]
-    private List<GameObject> clients = new List<GameObject>();
+    public List<GameObject> seats = new List<GameObject>();
+    public List<GameObject> bathrooms = new List<GameObject>();
+    public List<GameObject> clients = new List<GameObject>();
 
     private GameObject nextAvailableSeat;
 
     private void Awake()
     {
         GetNextAvailableSeat();
+    }
+
+    public void AddClient(GameObject client)
+    {
+        clients.Add(client);
     }
 
     public GameObject GetNextAvailableSeat()

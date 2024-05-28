@@ -101,7 +101,7 @@ MonoBehaviour:
     cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ConditionEvalNode id=\"16\" />\r\n          <PrioritySelectorNode id=\"12\"
     />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <ActionNode
-    id=\"15\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    id=\"15\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
     position=\"942.0005 529.6665\" name=\"Navigation/MoveToPosition\" description=\"Moves
     the game object to a given position by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode

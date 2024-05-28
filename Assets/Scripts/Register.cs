@@ -16,6 +16,7 @@ public class Register : MonoBehaviour
     // Clients
     public GameObject seat;
     private GameObject exit;
+    public GameObject bathroom;
 
     [SerializeField] private Wishes wishes;
     public GameObject wish;

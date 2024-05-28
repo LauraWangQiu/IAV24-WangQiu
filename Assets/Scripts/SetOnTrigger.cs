@@ -25,13 +25,19 @@ public class SetOnTrigger : MonoBehaviour
     {
         if (set != null && other.CompareTag(tagName) && (assignedObject == null || assignedObject == other.gameObject))
         {
+            Register register = other.GetComponent<Register>();
+            // Si ya tiene silla asignada
+            if (register != null && register.seat != null && assignedObject != other.gameObject)
+            {
+                return;
+            }
+
             other.transform.SetPositionAndRotation(set.transform.position, set.transform.rotation);
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
             }
-            Register register = other.GetComponent<Register>();
             if (register != null && register.activeExecutor != null)
             {
                 register.activeExecutor.enabled = false;
@@ -41,6 +47,7 @@ public class SetOnTrigger : MonoBehaviour
                     register.seat = gameObject;
                     register.SetExit(exit);
                 }
+                register.WishAccomplished();
             }
             NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
             if (agent != null)
@@ -67,29 +74,6 @@ public class SetOnTrigger : MonoBehaviour
         }
     }
 
-    //private void SelectBehavior()
-    //{
-    //    Register register = currentSitObject.GetComponent<Register>();
-    //    if (!available && currentSitObject != null && register.wishAccomplished)
-    //    {
-    //        Transform catchPosition = currentSitObject.transform.Find("CatchPosition");
-    //        if (catchPosition != null)
-    //        {
-    //            foreach (Transform child in catchPosition)
-    //            {
-    //                Destroy(child.gameObject);
-    //            }
-    //        }
-
-    //        Debug.Log("A random behavior has been selected");
-    //        WishManager wishManager = currentSitObject.GetComponent<WishManager>();
-    //        if (wishManager != null)
-    //        {
-    //            wishManager.SelectRandomBehavior();
-    //        }
-    //    }
-    //}
-
     IEnumerator SelectBehavior(float time)
     {
         yield return new WaitForSeconds(time);
@@ -109,19 +93,4 @@ public class SetOnTrigger : MonoBehaviour
             collider.enabled = true;
         }
     }
-
-    //public void ActivateBehavior()
-    //{
-    //    Register register = currentSitObject.GetComponent<Register>();
-    //    if (register != null && register.activeExecutor != null)
-    //    {
-    //        register.activeExecutor.enabled = true;
-    //    }
-    //    NavMeshAgent agent = currentSitObject.GetComponent<NavMeshAgent>();
-    //    if (agent != null)
-    //    {
-    //        agent.enabled = true;
-    //        agent.isStopped = true;
-    //    }
-    //}
 }

@@ -20,7 +20,6 @@ public class SetDrink : MonoBehaviour
             {
                 col.enabled = false;
             }
-            register.WishAccomplished();
 
             RegisterObject registerObject = GetComponent<RegisterObject>();
             if (registerObject != null)

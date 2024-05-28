@@ -9,7 +9,12 @@ public class SpawnClient : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && clientPrefab != null && spawnPoint != null)
         {
-            Instantiate(clientPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            GameObject client = Instantiate(clientPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            RestaurantRegister restaurantRegister = GetComponent<RestaurantRegister>();
+            if (restaurantRegister != null)
+            {
+                restaurantRegister.AddClient(client);
+            }
         }
     }
 }
