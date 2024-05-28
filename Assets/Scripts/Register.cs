@@ -137,6 +137,7 @@ public class Register : MonoBehaviour
         WishServed();
         wishAccomplished = true;
         wishOnWait = false;
+        bathroom = null;
     }
 
     public void WishServed()

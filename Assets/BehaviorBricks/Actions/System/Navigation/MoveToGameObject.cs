@@ -26,7 +26,6 @@ namespace BBUnity.Actions
         {
             if (target == null)
             {
-                Debug.LogError("The movement target of this game object is null", gameObject);
                 return;
             }
             targetTransform = target.transform;

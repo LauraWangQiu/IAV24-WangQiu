@@ -47,7 +47,14 @@ public class SetOnTrigger : MonoBehaviour
                     register.seat = gameObject;
                     register.SetExit(exit);
                 }
-                register.WishAccomplished();
+                if ((register.wish != null && 
+                    (register.wish.tag == "Soda" 
+                    || register.wish.tag == "Coke" 
+                    || register.wish.tag == "Lemonade")) 
+                    || (register.bathroom != null))
+                {
+                    register.WishAccomplished();
+                }
             }
             NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
             if (agent != null)
