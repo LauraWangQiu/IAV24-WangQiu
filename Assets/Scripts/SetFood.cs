@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SetDrink : MonoBehaviour
+public class SetFood : MonoBehaviour
 {
-    [SerializeField] private string tagName = "Client";
+    [SerializeField] private string tagName = "Player";
     private BoxCollider col;
 
     private void Start()
@@ -12,15 +12,13 @@ public class SetDrink : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Register register = other.GetComponent<Register>();
-        if (other.CompareTag(tagName) && register != null && !register.wishAccomplished && register.wish.tag == gameObject.tag)
+        if (other.CompareTag(tagName))
         {
-            Debug.Log("Drink set");
+            Debug.Log("Food set");
             if (col != null)
             {
                 col.enabled = false;
             }
-            register.WishAccomplished();
 
             RegisterObject registerObject = GetComponent<RegisterObject>();
             if (registerObject != null)
@@ -34,7 +32,7 @@ public class SetDrink : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("CatchPosition not found in the client object");
+                    Debug.LogError("CatchPosition not found in the player object");
                 }
             }
             else

@@ -20,6 +20,10 @@ namespace BBUnity.Actions
         [Help("Set GameObject")]
         public GameObject setobject;
 
+        [OutParam("drinkMachine")]
+        [Help("DrinkMachine")]
+        public GameObject drinkMachine;
+
         public override void OnStart()
         {
             RegisterObject registerObject = gameobject.GetComponent<RegisterObject>();
@@ -32,6 +36,12 @@ namespace BBUnity.Actions
             if (register != null)
             {
                 register.wish = gameobject;
+            }
+
+            drinkMachine = GameObject.Find("DrinkMachine2");
+            if (drinkMachine == null)
+            {
+                Debug.LogWarning("DrinkMachine not found");
             }
         }
 

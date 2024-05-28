@@ -86,6 +86,15 @@ public class SetOnTrigger : MonoBehaviour
         Register register = currentSitObject.GetComponent<Register>();
         if (!available && currentSitObject != null && register.wishAccomplished)
         {
+            Transform catchPosition = currentSitObject.transform.Find("CatchPosition");
+            if (catchPosition != null)
+            {
+                foreach (Transform child in catchPosition)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+
             Debug.Log("A random behavior has been selected");
             WishManager wishManager = currentSitObject.GetComponent<WishManager>();
             if (wishManager != null)

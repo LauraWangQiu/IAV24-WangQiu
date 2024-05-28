@@ -20,7 +20,19 @@ namespace BBCore.Conditions
 		{
             if (register == null)
             {
-                return false;
+                GameObject registerObj = GameObject.Find("Register");
+                if (registerObj != null)
+                {
+                    register = registerObj.GetComponent<RestaurantRegister>();
+                    if (register == null)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
             }
             nearestAvailable = register.GetNextAvailableSeat();
             if (nearestAvailable != null)

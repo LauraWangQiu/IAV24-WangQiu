@@ -65,7 +65,7 @@ public class Register : MonoBehaviour
 
     public void WishServed()
     {
-        wish = null;
         wishSprite = null;
+        wish = null;
     }
 }

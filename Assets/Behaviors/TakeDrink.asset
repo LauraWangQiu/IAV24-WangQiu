@@ -21,7 +21,6 @@ MonoBehaviour:
     isBlackboard=\"False\" />\r\n          <entry name=\"register\" type=\"Register\"
     isBlackboard=\"False\" />\r\n          <entry name=\"lemonade\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"False\" />\r\n          <entry name=\"coke\" type=\"UnityEngine.GameObject\"
-    isBlackboard=\"False\" />\r\n          <entry name=\"drinkMachine\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"False\" />\r\n          <entry name=\"position\" type=\"UnityEngine.Vector3\"
     isBlackboard=\"False\" value=\"0 0 0\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
@@ -29,6 +28,7 @@ MonoBehaviour:
     <entry name=\"instantiated\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
     />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams>\r\n       
     <localValues>\r\n          <entry name=\"seat\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"False\" />\r\n          <entry name=\"drinkMachine\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"False\" />\r\n        </localValues>\r\n      </localParams>\r\n   
     </BehaviorTree>\r\n    <RepeatDecorator id=\"32\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
     <child>\r\n        <SequenceNode id=\"3\" />\r\n      </child>\r\n      <inputParams
@@ -94,17 +94,19 @@ MonoBehaviour:
     type=\"Register\" isBlackboard=\"True\" blackboard=\"register\" />\r\n       
     </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
     <entry name=\"game object\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
-    blackboard=\"drink\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
-    <localParams />\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"30\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\"
-    name=\"Basic/CheckCatch\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
-    <entry name=\"GameObject\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
-    blackboard=\"instantiated\" />\r\n          <entry name=\"Register\" type=\"Register\"
-    isBlackboard=\"True\" blackboard=\"register\" />\r\n        </inputValues>\r\n     
-    </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
-    <entry name=\"Seat\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"seat\"
-    />\r\n        </outputValues>\r\n      </outputParams>\r\n      <localParams
-    />\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"25\" action=\"Navigation/MoveToGameObject\">\r\n     
-    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
+    blackboard=\"drink\" />\r\n          <entry name=\"drinkMachine\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"drinkMachine\" />\r\n        </outputValues>\r\n     
+    </outputParams>\r\n      <localParams />\r\n    </ActionNode>\r\n    <ConditionEvalNode
+    id=\"30\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"Basic/CheckCatch\">\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"GameObject\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"instantiated\"
+    />\r\n          <entry name=\"Register\" type=\"Register\" isBlackboard=\"True\"
+    blackboard=\"register\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"Seat\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"seat\" />\r\n        </outputValues>\r\n     
+    </outputParams>\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n    <ActionNode
+    id=\"25\" action=\"Navigation/MoveToGameObject\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"instantiated\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n 
     </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"TakeDrink\"
@@ -177,13 +179,13 @@ MonoBehaviour:
     the game object\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"9\" />\r\n          <RandomSelectorNode
     id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    <ActionNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
     position=\"133.4054 574.0235\" name=\"GameObject/SetGameObject\" description=\"Sets
     the game object\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"10\" />\r\n          <RandomSelectorNode
     id=\"7\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ConditionEvalNode id=\"30\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"True\" position=\"737.0337 605.3589\" name=\"Basic/CheckCatch\" description=\"Eval\"
+    selected=\"False\" position=\"737.0337 605.3589\" name=\"Basic/CheckCatch\" description=\"Eval\"
     cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ConditionEvalNode id=\"30\" />\r\n          <PrioritySelectorNode id=\"29\"
     />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <ActionNode
