@@ -8,31 +8,25 @@ namespace BBCore.Conditions
     [Help("Finds the nearest available GameObject")]
     public class CheckNearestAvailable : ConditionBase
     {
-        [InParam("RestaurantRegister")]
-        [Help("Reference to the RestaurantRegister")]
-        public RestaurantRegister register;
-
         [OutParam("NearestAvailable")]
         [Help("Reference to the nearest seat available")]
         public GameObject nearestAvailable;
 
         public override bool Check()
 		{
-            if (register == null)
+            RestaurantRegister register = null;
+            GameObject registerObj = GameObject.Find("Register");
+            if (registerObj != null)
             {
-                GameObject registerObj = GameObject.Find("Register");
-                if (registerObj != null)
-                {
-                    register = registerObj.GetComponent<RestaurantRegister>();
-                    if (register == null)
-                    {
-                        return false;
-                    }
-                }
-                else
+                register = registerObj.GetComponent<RestaurantRegister>();
+                if (register == null)
                 {
                     return false;
                 }
+            }
+            else
+            {
+                return false;
             }
             nearestAvailable = register.GetNextAvailableSeat();
             if (nearestAvailable != null)

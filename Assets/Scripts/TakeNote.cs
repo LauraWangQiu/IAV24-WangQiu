@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TakeNote : MonoBehaviour
 {
+    [SerializeField] private string tagName = "Player";
     private Register myRegister;
 
     private void Start()
@@ -11,16 +12,37 @@ public class TakeNote : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (myRegister != null && other.CompareTag("Player"))
+        if (myRegister != null && other.CompareTag(tagName))
         {
-            Register register = other.GetComponent<Register>();
-            if (register != null && myRegister.wish != null &&
-                (myRegister.wish.tag == "Burger" ||
-                 myRegister.wish.tag == "Fries"  ||
-                 myRegister.wish.tag == "Doughnut"))
+            // Toma nota de la comida que el jugador ha recogido
+            if (!myRegister.wishOnWait)
             {
-                register.petitions.Add(myRegister.wish);
-                myRegister.WishServed();
+                Register register = other.GetComponent<Register>();
+                if (register != null && myRegister.wish != null &&
+                    (myRegister.wish.tag == "Burger" ||
+                     myRegister.wish.tag == "Fries" ||
+                     myRegister.wish.tag == "Doughnut"))
+                {
+                    register.petitions.Add(myRegister.wish);
+                }
+                myRegister.wishOnWait = true;
+            }
+            else
+            {
+                Transform catchPosition = other.transform.Find("CatchPosition");
+                if (myRegister.wish != null && catchPosition != null)
+                {
+                    foreach (Transform child in catchPosition)
+                    {
+                        if (child.CompareTag(myRegister.wish.tag))
+                        {
+                            myRegister.WishAccomplished();
+                            StartCoroutine(myRegister.SelectBehavior(Random.Range(2.0f, 5.0f)));
+                            Destroy(child.gameObject);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

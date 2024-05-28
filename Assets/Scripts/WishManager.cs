@@ -52,12 +52,12 @@ public class WishManager : MonoBehaviour
                 if (register.activeExecutor.behavior.brickName == "Assets/Behaviors/OrderFood.asset" ||
                     register.activeExecutor.behavior.brickName == "Assets/Behaviors/AskForBill.asset")
                 {
-                    seat.ActivateBehavior();
+                    register.ActivateBehavior();
                 }
                 // Se levanta si no es pedir comida o pedir la cuenta
                 else
                 {
-                    seat.StandUp();
+                    register.StandUp();
                 }
             }
         }

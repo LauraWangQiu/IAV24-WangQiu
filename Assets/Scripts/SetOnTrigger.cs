@@ -35,8 +35,12 @@ public class SetOnTrigger : MonoBehaviour
             if (register != null && register.activeExecutor != null)
             {
                 register.activeExecutor.enabled = false;
-                register.seat = gameObject;
                 register.SetState(Register.State.SIT);
+                if (assignedObject == null)
+                {
+                    register.seat = gameObject;
+                    register.SetExit(exit);
+                }
             }
             NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
             if (agent != null)
@@ -46,30 +50,12 @@ public class SetOnTrigger : MonoBehaviour
             available = false;
             currentSitObject = other.gameObject;
             assignedObject = other.gameObject;
-            Invoke("SelectBehavior", Random.Range(randomMin, randomMax));
+            StartCoroutine(SelectBehavior(Random.Range(randomMin, randomMax)));
         }
     }
 
     public void StandUp()
     {
-        if (currentSitObject == null)
-        {
-            return;
-        }
-
-        currentSitObject.transform.SetPositionAndRotation(exit.transform.position, exit.transform.rotation);
-        Rigidbody rb = currentSitObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-        }
-        ActivateBehavior();
-        Register register = currentSitObject.GetComponent<Register>();
-        if (register != null && register.activeExecutor != null)
-        {
-            register.SetState(Register.State.IDLE);
-            register.SetExitPosition(exit.transform.position);
-        }
         currentSitObject = null;
         available = true;
 
@@ -81,26 +67,36 @@ public class SetOnTrigger : MonoBehaviour
         }
     }
 
-    private void SelectBehavior()
-    {
-        Register register = currentSitObject.GetComponent<Register>();
-        if (!available && currentSitObject != null && register.wishAccomplished)
-        {
-            Transform catchPosition = currentSitObject.transform.Find("CatchPosition");
-            if (catchPosition != null)
-            {
-                foreach (Transform child in catchPosition)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
+    //private void SelectBehavior()
+    //{
+    //    Register register = currentSitObject.GetComponent<Register>();
+    //    if (!available && currentSitObject != null && register.wishAccomplished)
+    //    {
+    //        Transform catchPosition = currentSitObject.transform.Find("CatchPosition");
+    //        if (catchPosition != null)
+    //        {
+    //            foreach (Transform child in catchPosition)
+    //            {
+    //                Destroy(child.gameObject);
+    //            }
+    //        }
 
-            Debug.Log("A random behavior has been selected");
-            WishManager wishManager = currentSitObject.GetComponent<WishManager>();
-            if (wishManager != null)
-            {
-                wishManager.SelectRandomBehavior();
-            }
+    //        Debug.Log("A random behavior has been selected");
+    //        WishManager wishManager = currentSitObject.GetComponent<WishManager>();
+    //        if (wishManager != null)
+    //        {
+    //            wishManager.SelectRandomBehavior();
+    //        }
+    //    }
+    //}
+
+    IEnumerator SelectBehavior(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Register register = currentSitObject.GetComponent<Register>();
+        if (register != null)
+        {
+            register.SelectBehavior();
         }
     }
 
@@ -114,18 +110,18 @@ public class SetOnTrigger : MonoBehaviour
         }
     }
 
-    public void ActivateBehavior()
-    {
-        Register register = currentSitObject.GetComponent<Register>();
-        if (register != null && register.activeExecutor != null)
-        {
-            register.activeExecutor.enabled = true;
-        }
-        NavMeshAgent agent = currentSitObject.GetComponent<NavMeshAgent>();
-        if (agent != null)
-        {
-            agent.enabled = true;
-            agent.isStopped = true;
-        }
-    }
+    //public void ActivateBehavior()
+    //{
+    //    Register register = currentSitObject.GetComponent<Register>();
+    //    if (register != null && register.activeExecutor != null)
+    //    {
+    //        register.activeExecutor.enabled = true;
+    //    }
+    //    NavMeshAgent agent = currentSitObject.GetComponent<NavMeshAgent>();
+    //    if (agent != null)
+    //    {
+    //        agent.enabled = true;
+    //        agent.isStopped = true;
+    //    }
+    //}
 }
