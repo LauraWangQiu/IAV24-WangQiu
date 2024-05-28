@@ -84,7 +84,8 @@ Los deseos que tendrán los clientes son:
 
 ```mermaid
 flowchart TD
-    A(("OrderFood")) --> B(("~?"))
+    Z[OrderFood] -->A
+    A(("G")) --> B(("~?"))
     B -->C[Burger]
     B -->D[Fries]
     B -->E[Doughnut]
@@ -95,7 +96,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A(("TakeDrink")) --> B(("->"))
+    Z[TakeDrink] -->A
+    A(("G")) --> B(("->"))
     B -->C(("~?"))
     C -->D[Soda]
     C -->E[Coke]
@@ -115,8 +117,15 @@ Una vez cogida la bebida, se les sumará en la cuenta del cliente el precio de l
 
 ```mermaid
 flowchart TD
-    A(("GoToBathroom")) --> B(("->"))
-    B -->C[MoveToBathroom]
+    Z[GoToBathroom] -->A
+    A(("G")) --> B(("->"))
+    B -->C(("?"))
+    C -->|CheckWaitPoint| D[MoveToWaitPoint]
+    B -->E["RepeatUntilSuccess"]
+    E -->F(("?"))
+    F -->|CheckBathroom| G[MoveToBathroom]
+    B -->H[WaitForSeconds]
+    B -->I[MoveToTable]
 ```
 
 - **Pedir la cuenta**: si previamente han tomado algo ya sea comida o bebida, podrán pedir la cuenta.
@@ -137,7 +146,6 @@ flowchart TD
 | Pruebas | Links |
 |:-:|:-:|
 | **Característica B** | |
-| Comprobar que los clientes miren el menú antes de cualquier otro deseo | []() |
 | Comprobar que los clientes pidan comida y bebida aleatorios. Primero, solo dando una opción de comida y bebida. Luego, con más de una opción. | []() |
 | Comprobar que los clientes pidan la cuenta o vayan al baño después de haber pedido algo | []() |
 
