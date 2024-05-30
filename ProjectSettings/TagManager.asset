@@ -10,8 +10,9 @@ TagManager:
   - Coke
   - Soda
   - Burger
-  - Fries
   - Doughnut
+  - Cupcake
+  - Cook
   layers:
   - Default
   - TransparentFX

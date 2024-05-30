@@ -11,11 +11,17 @@ public class WishManager : MonoBehaviour
 
     [SerializeField] private Image image;
 
+    [SerializeField] private TakeNote takeNote;
+
     void Start()
     {
         if (register == null)
         {
             Debug.LogError("Register is not set");
+        }
+        if (takeNote == null)
+        {
+            Debug.LogError("TakeNote is not set");
         }
     }
 
@@ -52,6 +58,7 @@ public class WishManager : MonoBehaviour
                 if (register.activeExecutor.behavior.brickName == "Assets/Behaviors/OrderFood.asset" ||
                     register.activeExecutor.behavior.brickName == "Assets/Behaviors/AskForBill.asset")
                 {
+                    takeNote.foodSet = false;
                     register.ActivateBehavior();
                 }
                 // Se levanta si no es pedir comida o pedir la cuenta

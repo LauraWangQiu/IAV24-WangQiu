@@ -397,12 +397,12 @@ MonoBehaviour:
     - {fileID: 887885938454876536}
     - {fileID: 5959661674729835722, guid: 9e0e728ad620bf244b89e34930b844b2, type: 3}
     - {fileID: 1080854471979460, guid: 0683ba921c1a542ea8dae92b271c1e18, type: 3}
-    - {fileID: 4601807697355163923, guid: 494ce0ae26952704c8a93fd02d125112, type: 3}
+    - {fileID: 1982925297928428, guid: 75221d19731aa453d81714a24451c72a, type: 3}
     objectParamsNames:
     - register
     - burguer
     - donut
-    - fries
+    - cupcake
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wishes:
   - gameObject: {fileID: 1915065632980748, guid: 7b9e9044605a04568a0c9d41cebd7913, type: 3}
-    sprite: {fileID: 21300000, guid: be6d0085e3edaaf4785d36c342aa0b26, type: 3}
+    sprite: {fileID: 21300000, guid: 8c5aefb9f92258a4089da5ac8d155463, type: 3}
     cost: 2
   - gameObject: {fileID: 1872261569430189388, guid: 51d6319d2b9742640a6b2bb01da1dc59, type: 3}
     sprite: {fileID: 21300000, guid: ff9070cc0e3877c4ebfadbbc9d8c2184, type: 3}
@@ -635,13 +635,13 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a21136eda362134b815f462dff5d0f2, type: 3}
     cost: 5
   - gameObject: {fileID: 5959661674729835722, guid: 9e0e728ad620bf244b89e34930b844b2, type: 3}
-    sprite: {fileID: 21300000, guid: 5da58b4bb004ca54b856c86111e95ef4, type: 3}
+    sprite: {fileID: 21300000, guid: 05e09dbc8d898224d9570dfe19abc69b, type: 3}
     cost: 10
-  - gameObject: {fileID: 4601807697355163923, guid: 494ce0ae26952704c8a93fd02d125112, type: 3}
-    sprite: {fileID: 21300000, guid: 53facf05958bf124d97f7ae44527ac9e, type: 3}
+  - gameObject: {fileID: 1982925297928428, guid: 75221d19731aa453d81714a24451c72a, type: 3}
+    sprite: {fileID: 21300000, guid: e2a39d2ba204d4d468a633872f30c7a5, type: 3}
     cost: 3
   - gameObject: {fileID: 1080854471979460, guid: 0683ba921c1a542ea8dae92b271c1e18, type: 3}
-    sprite: {fileID: 21300000, guid: 81f125b9d720f7b47af77d6b6de7c1df, type: 3}
+    sprite: {fileID: 21300000, guid: ac26d25af3dcbdc49aea8b91e45af410, type: 3}
     cost: 3
 --- !u!114 &4429552917641547383
 MonoBehaviour:
@@ -661,6 +661,7 @@ MonoBehaviour:
   - {fileID: 2103697849339456794}
   - {fileID: 2013876990244325217}
   image: {fileID: 4292237706298341243}
+  takeNote: {fileID: 5050699999838297582}
 --- !u!1 &7426085947532704819
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,3 +950,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagName: Player
+  foodSet: 0

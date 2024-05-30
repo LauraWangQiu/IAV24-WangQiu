@@ -26,12 +26,9 @@ public class Cook : MonoBehaviour
 
     public void AddToCookList(GameObject item)
     {
-        if (!toCook.Contains(item))
-        {
-            Debug.Log("Adding to cook list");
-            toCook.Add(item);
-            StartCoroutine(CookItem(item));
-        }
+        Debug.Log("Adding to cook list");
+        toCook.Add(item);
+        StartCoroutine(CookItem(item));
     }
 
     IEnumerator CookItem(GameObject item)

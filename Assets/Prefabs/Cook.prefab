@@ -151,9 +151,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 864053510552444354}
     m_Modifications:
+    - target: {fileID: 1051871562219484, guid: 18b7cb44d2e1640768d8ac9469d450fc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542084122900642, guid: 18b7cb44d2e1640768d8ac9469d450fc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763059122796468, guid: 18b7cb44d2e1640768d8ac9469d450fc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1914414312603122, guid: 18b7cb44d2e1640768d8ac9469d450fc, type: 3}
       propertyPath: m_Name
       value: PW_frenchtoast_egg _cookable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914414312603122, guid: 18b7cb44d2e1640768d8ac9469d450fc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4822231963541970, guid: 18b7cb44d2e1640768d8ac9469d450fc, type: 3}
       propertyPath: m_LocalPosition.x

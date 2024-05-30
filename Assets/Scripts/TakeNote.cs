@@ -4,6 +4,7 @@ public class TakeNote : MonoBehaviour
 {
     [SerializeField] private string tagName = "Player";
     private Register myRegister;
+    public bool foodSet = false;
 
     private void Start()
     {
@@ -12,7 +13,7 @@ public class TakeNote : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (myRegister != null && other.CompareTag(tagName))
+        if (!foodSet && myRegister != null && other.CompareTag(tagName))
         {
             // Toma nota de la comida que el jugador ha recogido
             if (!myRegister.wishOnWait)
@@ -20,7 +21,7 @@ public class TakeNote : MonoBehaviour
                 Register register = other.GetComponent<Register>();
                 if (register != null && myRegister.wish != null &&
                     (myRegister.wish.tag == "Burger" ||
-                     myRegister.wish.tag == "Fries" ||
+                     myRegister.wish.tag == "Cupcake" ||
                      myRegister.wish.tag == "Doughnut"))
                 {
                     register.petitions.Add(myRegister.wish);
@@ -39,6 +40,7 @@ public class TakeNote : MonoBehaviour
                             myRegister.WishAccomplished();
                             StartCoroutine(myRegister.SelectBehavior(Random.Range(2.0f, 5.0f)));
                             Destroy(child.gameObject);
+                            foodSet = true;
                             break;
                         }
                     }
