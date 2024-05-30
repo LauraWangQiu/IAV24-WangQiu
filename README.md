@@ -203,3 +203,5 @@ PacktPublishing/Unity-Artificial-Intelligence-Programming-Fifth-Edition: Unity A
 - Cutlery: https://assetstore.unity.com/packages/3d/props/food/cutlery-silverware-pbr-106932
 - Customizable Kitchen Pack: https://assetstore.unity.com/packages/3d/props/interior/customizable-kitchen-pack-22269
 - Food Pack | Free Demo: https://assetstore.unity.com/packages/3d/props/food/food-pack-free-demo-225294
+- Paper panels: https://gamedeveloperstudio.itch.io/paper-panels
+- Retro Pixel Ribbons, Banners and Frames 2: https://bdragon1727.itch.io/retro-pixel-ribbons-banners-and-frames-2

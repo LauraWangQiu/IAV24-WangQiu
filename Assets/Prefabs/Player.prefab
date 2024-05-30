@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3530603671790365604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.42, y: 0, z: -0.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -211,7 +211,7 @@ MonoBehaviour:
     objectParamsLostDefaultValue: 
     layerMaskParams:
     - serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4096
     layerMaskParamsNames:
     - mask
     layerMaskParamsLostDefaultValue: 
@@ -345,9 +345,11 @@ MonoBehaviour:
   currentState: 1
   petitions: []
   seat: {fileID: 0}
+  bathroom: {fileID: 0}
   wishes: {fileID: 0}
   wish: {fileID: 0}
   wishSprite: {fileID: 0}
+  wishOnWait: 0
   wishAccomplished: 1
   owingMoney: 0
 --- !u!114 &2289245267088372795
