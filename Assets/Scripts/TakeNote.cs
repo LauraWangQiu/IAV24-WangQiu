@@ -27,36 +27,35 @@ public class TakeNote : MonoBehaviour
     {
         if (myRegister != null && other.CompareTag(tagName))
         {
-            if (!foodSet)
+            // Toma nota de la comida que el jugador ha recogido
+            if (!foodSet && !myRegister.wishOnWait)
             {
-                // Toma nota de la comida que el jugador ha recogido
-                if (!myRegister.wishOnWait)
+                Register register = other.GetComponent<Register>();
+                if (register != null && myRegister.wish != null &&
+                    (myRegister.wish.tag == "Burger" ||
+                     myRegister.wish.tag == "Cupcake" ||
+                     myRegister.wish.tag == "Doughnut"))
                 {
-                    Register register = other.GetComponent<Register>();
-                    if (register != null && myRegister.wish != null &&
-                        (myRegister.wish.tag == "Burger" ||
-                         myRegister.wish.tag == "Cupcake" ||
-                         myRegister.wish.tag == "Doughnut"))
-                    {
-                        register.petitions.Add(myRegister.wish);
-                    }
-                    myRegister.wishOnWait = true;
+                    register.petitions.Add(new Petition(myRegister.wish, myRegister.GetComponent<ID>().id));
                 }
-                else
+                myRegister.wishOnWait = true;
+            }
+            else if (!foodSet)
+            {
+                Transform catchPosition = other.transform.Find("CatchPosition");
+                if (catchPosition != null && myRegister.wish != null)
                 {
-                    Transform catchPosition = other.transform.Find("CatchPosition");
-                    if (myRegister.wish != null && catchPosition != null)
+                    foreach (Transform child in catchPosition)
                     {
-                        foreach (Transform child in catchPosition)
+                        Debug.Log("Food ID: " + child.GetComponent<ID>().id + " Client ID: " + myRegister.GetComponent<ID>().id);
+                        if (child.CompareTag(myRegister.wish.tag) && 
+                            child.GetComponent<ID>().id == myRegister.GetComponent<ID>().id)
                         {
-                            if (child.CompareTag(myRegister.wish.tag))
-                            {
-                                myRegister.WishAccomplished();
-                                StartCoroutine(myRegister.SelectBehavior(Random.Range(2.0f, 5.0f)));
-                                Destroy(child.gameObject);
-                                foodSet = true;
-                                break;
-                            }
+                            myRegister.WishAccomplished();
+                            StartCoroutine(myRegister.SelectBehavior(Random.Range(2.0f, 5.0f)));
+                            Destroy(child.gameObject);
+                            foodSet = true;
+                            break;
                         }
                     }
                 }

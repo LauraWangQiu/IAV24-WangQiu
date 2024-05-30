@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 887885938454876536}
   - component: {fileID: 8486657899364957828}
   - component: {fileID: 4429552917641547383}
+  - component: {fileID: 7552373631540645865}
   m_Layer: 7
   m_Name: Client
   m_TagString: Client
@@ -671,6 +672,19 @@ MonoBehaviour:
   - {fileID: 4069720058586880804}
   image: {fileID: 4292237706298341243}
   takeNote: {fileID: 5050699999838297582}
+--- !u!114 &7552373631540645865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333154428204532315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0e9f57132422f4c8d3631e4050c76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &7426085947532704819
 GameObject:
   m_ObjectHideFlags: 0

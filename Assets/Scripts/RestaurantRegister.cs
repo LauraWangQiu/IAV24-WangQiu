@@ -6,6 +6,7 @@ public class RestaurantRegister : MonoBehaviour
     public List<GameObject> seats = new List<GameObject>();
     public List<GameObject> bathrooms = new List<GameObject>();
     public List<GameObject> clients = new List<GameObject>();
+    public int currentClientId = 0;
 
     private GameObject nextAvailableSeat;
 
@@ -41,5 +42,10 @@ public class RestaurantRegister : MonoBehaviour
         {
             set.available = available;
         }
+    }
+
+    public int GetNextClientId()
+    {
+        return currentClientId++;
     }
 }

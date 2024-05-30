@@ -17,6 +17,14 @@ namespace BBCore.Conditions
             {
                 return true;
             }
+            if (register.seat != null)
+            {
+                SetOnTrigger trigger = register.seat.GetComponent<SetOnTrigger>();
+                if (trigger != null)
+                {
+                    trigger.ResetSeat();
+                }
+            }
             return register.paid;
 		}
     }

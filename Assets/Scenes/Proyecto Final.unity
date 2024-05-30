@@ -19398,6 +19398,7 @@ MonoBehaviour:
   - {fileID: 316766004}
   - {fileID: 1338610877}
   clients: []
+  currentClientId: 0
 --- !u!114 &1667162001
 MonoBehaviour:
   m_ObjectHideFlags: 0

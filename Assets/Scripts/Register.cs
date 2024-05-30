@@ -4,6 +4,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
+[System.Serializable]
+public class Petition
+{
+    public GameObject obj;
+    public int id;
+
+    public Petition(GameObject obj, int id)
+    {
+        this.obj = obj;
+        this.id = id;
+    }
+}
+
 public class Register : MonoBehaviour
 {
     // Waiter & Clients
@@ -12,7 +25,7 @@ public class Register : MonoBehaviour
     public State currentState;
 
     // Waiter
-    public List<GameObject> petitions = new List<GameObject>();
+    public List<Petition> petitions = new List<Petition>();
     public float money = 0;
     public TextMeshProUGUI moneyText;
 

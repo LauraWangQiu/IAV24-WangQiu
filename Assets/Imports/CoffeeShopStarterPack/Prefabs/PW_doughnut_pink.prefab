@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToCook: 1
+  timeToCoolDown: 10
 --- !u!114 &-74365379682306436
 MonoBehaviour:
   m_ObjectHideFlags: 0

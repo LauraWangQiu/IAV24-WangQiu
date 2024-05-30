@@ -187,8 +187,8 @@ Observa la tabla de abajo para ver el estado y las fechas de realización de las
 |:-:|:--|:-:|
 | ✔️ | Diseño: Primer borrador | 15-05-2024 |
 |  | Característica A | ..-05-2024 |
-|  | Característica B | ..-05-2024 |
-|  | Característica C | ..-05-2024 |
+| ✔️ | Característica B | 30-05-2024 |
+| ✔️ | Característica C | 30-05-2024 |
 |  | Característica D | ..-05-2024 |
 |  | Característica E | ..-05-2024 |
 

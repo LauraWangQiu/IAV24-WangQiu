@@ -9,8 +9,7 @@ public class SetOnTrigger : MonoBehaviour
     [SerializeField] private GameObject exit;
     [SerializeField] private float randomMin = 2.0f;
     [SerializeField] private float randomMax = 5.0f;
-    private GameObject currentSitObject;
-    private GameObject assignedObject;
+    public GameObject assignedObject;
     public bool available = true;
 
     void Start()
@@ -62,7 +61,6 @@ public class SetOnTrigger : MonoBehaviour
                 agent.enabled = false;
             }
             available = false;
-            currentSitObject = other.gameObject;
             assignedObject = other.gameObject;
             StartCoroutine(SelectBehavior(Random.Range(randomMin, randomMax)));
         }
@@ -70,9 +68,6 @@ public class SetOnTrigger : MonoBehaviour
 
     public void StandUp()
     {
-        currentSitObject = null;
-        available = true;
-
         BoxCollider collider = GetComponent<BoxCollider>();
         if (collider != null)
         {
@@ -84,7 +79,7 @@ public class SetOnTrigger : MonoBehaviour
     IEnumerator SelectBehavior(float time)
     {
         yield return new WaitForSeconds(time);
-        Register register = currentSitObject.GetComponent<Register>();
+        Register register = assignedObject.GetComponent<Register>();
         if (register != null)
         {
             register.SelectBehavior();
@@ -99,5 +94,11 @@ public class SetOnTrigger : MonoBehaviour
         {
             collider.enabled = true;
         }
+    }
+
+    public void ResetSeat()
+    {
+        available = true;
+        assignedObject = null;
     }
 }
