@@ -3134,6 +3134,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2467845069284678478, guid: 3c0b460c20e5c954d8523df4157882d1, type: 3}
   m_PrefabInstance: {fileID: 235543575}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &240641864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240641865}
+  m_Layer: 0
+  m_Name: GetFoodPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240641865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240641864}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.27, y: 0.5, z: 4.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &251255497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16836,6 +16867,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1450181205}
+  - component: {fileID: 1450181206}
+  - component: {fileID: 1450181207}
   m_Layer: 0
   m_Name: FoodPoint
   m_TagString: Untagged
@@ -16858,6 +16891,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1450181206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450181204}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1450181207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450181204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4539f88f3962da54bb044b9aa0d1d318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isThereFood: 0
+  foodList: []
 --- !u!1001 &1452575696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19398,6 +19466,7 @@ MonoBehaviour:
   - {fileID: 316766004}
   - {fileID: 1338610877}
   clients: []
+  orders: []
   currentClientId: 0
 --- !u!114 &1667162001
 MonoBehaviour:
@@ -24011,18 +24080,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4885707310374143295, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: moneyText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5409081073481903077, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
       propertyPath: blackboard.objectParams.Array.data[1]
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 5612399784202364721, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: blackboard.objectParams.Array.data[0]
-      value: 
-      objectReference: {fileID: 2040823978}
     - target: {fileID: 6254734017002278966, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
       propertyPath: m_Name
       value: Player
@@ -24045,6 +24106,7 @@ SceneRoots:
   - {fileID: 1357763175}
   - {fileID: 1667161999}
   - {fileID: 1450181205}
+  - {fileID: 240641865}
   - {fileID: 2039920811}
   - {fileID: 401410057}
   - {fileID: 1975195798}

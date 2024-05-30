@@ -27,16 +27,18 @@ public class TakeNote : MonoBehaviour
     {
         if (myRegister != null && other.CompareTag(tagName))
         {
+            Register register = other.GetComponent<Register>();
             // Toma nota de la comida que el jugador ha recogido
             if (!foodSet && !myRegister.wishOnWait)
             {
-                Register register = other.GetComponent<Register>();
                 if (register != null && myRegister.wish != null &&
                     (myRegister.wish.tag == "Burger" ||
                      myRegister.wish.tag == "Cupcake" ||
                      myRegister.wish.tag == "Doughnut"))
                 {
                     register.petitions.Add(new Petition(myRegister.wish, myRegister.GetComponent<ID>().id));
+                    register.toGive.Add(myRegister.gameObject);
+                    myRegister.WishAssisted();
                 }
                 myRegister.wishOnWait = true;
             }
@@ -48,10 +50,11 @@ public class TakeNote : MonoBehaviour
                     foreach (Transform child in catchPosition)
                     {
                         Debug.Log("Food ID: " + child.GetComponent<ID>().id + " Client ID: " + myRegister.GetComponent<ID>().id);
-                        if (child.CompareTag(myRegister.wish.tag) && 
+                        if (child.CompareTag(myRegister.wish.tag) &&
                             child.GetComponent<ID>().id == myRegister.GetComponent<ID>().id)
                         {
                             myRegister.WishAccomplished();
+                            register.toGive.Remove(myRegister.gameObject);
                             StartCoroutine(myRegister.SelectBehavior(Random.Range(2.0f, 5.0f)));
                             Destroy(child.gameObject);
                             foodSet = true;
@@ -79,5 +82,10 @@ public class TakeNote : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
     }
 }

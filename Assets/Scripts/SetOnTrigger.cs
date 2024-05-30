@@ -76,9 +76,23 @@ public class SetOnTrigger : MonoBehaviour
         }
     }
 
+    public void StandUpForFood()
+    {
+        BoxCollider collider = GetComponent<BoxCollider>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+            StartCoroutine(ReactivateColliderAfterDelay(.2f));
+        }
+    }
+
     IEnumerator SelectBehavior(float time)
     {
         yield return new WaitForSeconds(time);
+        if (assignedObject == null)
+        {
+            yield break;
+        }
         Register register = assignedObject.GetComponent<Register>();
         if (register != null)
         {

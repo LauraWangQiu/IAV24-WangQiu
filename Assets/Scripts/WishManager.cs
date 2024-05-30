@@ -47,8 +47,8 @@ public class WishManager : MonoBehaviour
             return;
         }
         int selected = Random.Range(0, behaviors.Count);
-        register.activeExecutor = behaviors[selected];
-        Debug.Log("Selected Behavior: " + register.activeExecutor.behavior.brickName);
+        //register.activeExecutor = behaviors[selected];
+        register.activeExecutor = behaviors[1];
         register.wishAccomplished = false;
 
         if (register.seat != null)
@@ -60,6 +60,7 @@ public class WishManager : MonoBehaviour
                 {
                     takeNote.foodSet = false;
                     register.ActivateBehavior();
+                    seat.StandUpForFood();
                 }
                 // Se levanta si no es pedir comida
                 else

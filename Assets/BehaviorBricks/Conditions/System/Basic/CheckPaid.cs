@@ -1,5 +1,6 @@
 ﻿using Pada1.BBCore.Framework;
 using Pada1.BBCore;
+using UnityEngine;
 
 namespace BBCore.Conditions
 {
@@ -24,6 +25,11 @@ namespace BBCore.Conditions
                 {
                     trigger.ResetSeat();
                 }
+            }
+            RestaurantRegister restaurantRegister = GameObject.FindObjectOfType<RestaurantRegister>();
+            if (restaurantRegister != null)
+            {
+                restaurantRegister.RemoveClient(register.gameObject);
             }
             return register.paid;
 		}

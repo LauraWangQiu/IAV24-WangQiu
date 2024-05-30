@@ -6,6 +6,8 @@ public class RestaurantRegister : MonoBehaviour
     public List<GameObject> seats = new List<GameObject>();
     public List<GameObject> bathrooms = new List<GameObject>();
     public List<GameObject> clients = new List<GameObject>();
+    public List<GameObject> orders = new List<GameObject>();
+
     public int currentClientId = 0;
 
     private GameObject nextAvailableSeat;
@@ -18,6 +20,27 @@ public class RestaurantRegister : MonoBehaviour
     public void AddClient(GameObject client)
     {
         clients.Add(client);
+    }
+
+    public void RemoveClient(GameObject client)
+    {
+        if (clients.Contains(client))
+        {
+            clients.Remove(client);
+        }
+    }
+
+    public void AddOrder(GameObject order)
+    {
+        orders.Add(order);
+    }
+
+    public void RemoveOrder(GameObject order)
+    {
+        if (orders.Contains(order))
+        {
+            orders.Remove(order);
+        }
     }
 
     public GameObject GetNextAvailableSeat()

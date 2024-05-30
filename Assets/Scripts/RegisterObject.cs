@@ -9,4 +9,9 @@ public class RegisterObject : MonoBehaviour
     public float timeToCook = 1.0f;
 
     public float timeToCoolDown = 10.0f;
+
+    private void Update()
+    {
+        timeToCoolDown -= Time.deltaTime;
+    }
 }

@@ -26,8 +26,10 @@ public class Register : MonoBehaviour
 
     // Waiter
     public List<Petition> petitions = new List<Petition>();
+    public List<GameObject> toGive = new List<GameObject>();
     public float money = 0;
     public TextMeshProUGUI moneyText;
+    public RestaurantRegister restaurantRegister;
 
     // Clients
     public GameObject seat;
@@ -60,6 +62,8 @@ public class Register : MonoBehaviour
         {
             Debug.LogError("Money object not found");
         }
+
+        restaurantRegister = FindObjectOfType<RestaurantRegister>();
     }
 
     private void Update()
@@ -172,5 +176,13 @@ public class Register : MonoBehaviour
     {
         wishSprite = null;
         wish = null;
+    }
+
+    public void WishAssisted()
+    {
+        if (restaurantRegister != null)
+        {
+            restaurantRegister.RemoveOrder(gameObject);
+        }
     }
 }

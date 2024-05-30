@@ -54,15 +54,14 @@ Realizaremos diferentes árboles de comportamiento para `Jorge` y los clientes:
 ```mermaid
 flowchart TD
     A(("↺")) --> B((?))
-    B -->|"IsThereFood && (Food.TimeToCoolDown < X || (!IsThereOrder && !IsThereMoney && !IsThereQueue))"| C[MoveSequence/MoveToFood,MoveToClient,GiveFood]
-    B -->|"IsThereOrder && (Order.Client.WaitingTime > X || (!IsThereMoney && !IsThereQueue))"| D[MoveSequence/MoveToClient,TakeOrder,MoveToKitchen,GiveOrder]
-    B -->|"IsThereMoney"| E[MoveSequence/MoveToClient,TakeMoney]
-    B -->|"IsThereQueue"| F[MoveSequence/MoveToQueue,MoveToAvailableTable,GiveMenu]
+    B -->|"IsThereFood && (Food.TimeToCoolDown < X || (!IsThereOrder && !IsThereMoney))"| C[MoveSequence/MoveToFood,MoveToClient,GiveFood]
+    B -->|"IsThereOrder"| D[MoveSequence/MoveToClient,TakeOrder,MoveToKitchen,GiveOrder]
+    B -->|"IsThereMoney"| E[MoveSequence/MoveToChecl,TakeMoney]
 ```
 
 La variable `X` será el tiempo de espera máximo para cada acción.
 
-La idea es priorizar la entrega de comida, seguido de la toma de pedidos, la recogida de dinero y la asignación de mesas.
+La idea es priorizar la entrega de comida, seguido de la toma de pedidos y la recogida de dinero.
 
 Es muy importante que `Jorge` no se quede parado en ningún momento y teniendo en cuenta que las acciones tienen un tiempo de ejecución, se deberá tener en cuenta el tiempo de espera máximo para cada acción.
 
@@ -72,11 +71,9 @@ Luego, se encuentra la toma de pedidos pues es la segunda acción más important
 
 La recogida de dinero es la tercera acción más importante. Esto es debido a que si no se cobra a los clientes, no se podrá asignar la mesa a otro cliente.
 
-Cuando `Jorge` dé la comida a los clientes, se les sumará en la cuenta del cliente el precio del plato `ChargedMoney`.
+Los clientes tendrán una lista de deseos y cada deseo tendrá un árbol de comportamiento que les permitirán pedir comida, coger bebida, ir al baño e ir a pagar la cuenta.
 
-- Los clientes tendrán una lista de deseos y cada deseo tendrá un árbol de comportamiento que les permitirán pedir comida, coger bebida, ir al baño y pedir la cuenta.
-
-Para controlar qué deseo tiene cada cliente, se utilizará una cola de deseos. Cada vez que un cliente termine su deseo, se le asignará otro de forma aleatoria (`SelectRandomWish`).
+Cada vez que un cliente termine su deseo, se le asignará otro de forma aleatoria (`SelectRandomBehavior`).
 
 Los deseos que tendrán los clientes son:
 
@@ -85,15 +82,17 @@ Los deseos que tendrán los clientes son:
 ```mermaid
 flowchart TD
     Z[OrderFood] -->A
-    A(("G")) --> B(("~?"))
-    B -->C[Burger]
-    B -->D[Doughnut]
-    B -->E[Cupcake]
+    A(("G")) --> B(("->"))
+    B -->C[AddToOrderList]
+    B -->D(("~?"))
+    D -->E[Burger]
+    D -->F[Doughnut]
+    D -->G[Cupcake]
 ```
 
 Una vez recibida la comida, se les sumará en la cuenta del cliente el precio de la bebida `owingMoney`.
 
-Con el RandomSelector, se seleccionará un plato de comida de forma aleatoria entre las propuestas.
+Con el RandomSelector, se seleccionará un plato de comida de forma aleatoria entre las propuestas. Se añadirá el cliente a la lista de `orders`.
 
 - **Coger bebida**: si previamente se han sentado, podrán coger una bebida.
 

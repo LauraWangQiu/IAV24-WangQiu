@@ -5,7 +5,7 @@ using UnityEngine;
 namespace BBCore.Conditions
 {
     [Condition("Basic/CheckBill")]
-    [Help("Checks if the object is assigned to a seat")]
+    [Help("Assigns checkpoint and exitpoint")]
     public class CheckBill : ConditionBase
     {
         [OutParam("Check")]

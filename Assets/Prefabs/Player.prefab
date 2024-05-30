@@ -264,8 +264,10 @@ MonoBehaviour:
     boolParams: 
     boolParamsNames: []
     boolParamsLostDefaultValue: 
-    floatParams: []
-    floatParamsNames: []
+    floatParams:
+    - 2
+    floatParamsNames:
+    - X
     floatParamsLostDefaultValue: 
     stringParams: []
     stringParamsNames: []
@@ -273,10 +275,8 @@ MonoBehaviour:
     colorParams: []
     colorParamsNames: []
     colorParamsLostDefaultValue: 
-    objectParams:
-    - {fileID: 0}
-    objectParamsNames:
-    - target
+    objectParams: []
+    objectParamsNames: []
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -344,6 +344,9 @@ MonoBehaviour:
   activeExecutor: {fileID: 5409081073481903077}
   currentState: 1
   petitions: []
+  money: 0
+  moneyText: {fileID: 0}
+  restaurantRegister: {fileID: 0}
   seat: {fileID: 0}
   bathroom: {fileID: 0}
   wishes: {fileID: 0}
@@ -352,6 +355,8 @@ MonoBehaviour:
   wishOnWait: 0
   wishAccomplished: 1
   owingMoney: 0
+  paid: 1
+  leave: 0
 --- !u!114 &2289245267088372795
 MonoBehaviour:
   m_ObjectHideFlags: 0
