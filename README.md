@@ -87,10 +87,13 @@ flowchart TD
     Z[OrderFood] -->A
     A(("G")) --> B(("~?"))
     B -->C[Burger]
-    B -->D[Fries]
-    B -->E[Doughnut]
-    B -->F[...]
+    B -->D[Doughnut]
+    B -->E[Cupcake]
 ```
+
+Una vez recibida la comida, se les sumará en la cuenta del cliente el precio de la bebida `owingMoney`.
+
+Con el RandomSelector, se seleccionará un plato de comida de forma aleatoria entre las propuestas.
 
 - **Coger bebida**: si previamente se han sentado, podrán coger una bebida.
 
@@ -111,9 +114,11 @@ flowchart TD
     B -->M[MoveToTable]
 ```
 
-Una vez cogida la bebida, se les sumará en la cuenta del cliente el precio de la bebida `ChargedMoney`.
+Una vez cogida la bebida, se les sumará en la cuenta del cliente el precio de la bebida `owingMoney`.
 
-- **Ir al baño**: si previamente han tomado algo ya sea comida o bebida, podrán ir al baño.
+Con el RandomSelector, se seleccionará una bebida de forma aleatoria entre las propuestas. Luego, se moverá hacia la máquina de bebidas, cogerá la bebida, comprobará si la ha cogido y se dirigirá a la mesa.
+
+- **Ir al baño**:
 
 ```mermaid
 flowchart TD
@@ -128,13 +133,22 @@ flowchart TD
     B -->I[MoveToTable]
 ```
 
-- **Pedir la cuenta**: si previamente han tomado algo ya sea comida o bebida, podrán pedir la cuenta.
+Se mueve al punto de espera, espera a que haya un lavabo libre y se dirige al lavabo. Se esperará una cierta cantidad de tiempo en el baño y, una vez terminado, se dirigirá a la mesa.
+
+- **Pedir la cuenta**: si previamente tomaron algo (comida o bebida), se dirigirán a la caja para pagar.
 
 ```mermaid
 flowchart TD
-    A(("AskForBill")) --> B(("->"))
-    B -->C[AskForBill]
+    Z[AskForBill] -->A
+    A(("G")) --> B(("->"))
+    B -->C(("?"))
+    B -->D(("?"))
+    B -->E[Destroy]
+    C -->|CheckBill| F[MoveToCashier]
+    D -->|CheckPaid| G[MoveToExit]
 ```
+
+Se dirigirá a la caja, comprobará si ha pagado y una vez pagado se mueve a la salida y se destruye su instancia.
 
 ## Pruebas y métricas
 
@@ -147,7 +161,7 @@ flowchart TD
 |:-:|:-:|
 | **Característica B** | |
 | Comprobar que los clientes pidan comida y bebida aleatorios. Primero, solo dando una opción de comida y bebida. Luego, con más de una opción. | []() |
-| Comprobar que los clientes pidan la cuenta o vayan al baño después de haber pedido algo | []() |
+|  | []() |
 
 | Pruebas | Links |
 |:-:|:-:|
