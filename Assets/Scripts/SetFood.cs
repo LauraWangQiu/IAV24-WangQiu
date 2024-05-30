@@ -14,7 +14,6 @@ public class SetFood : MonoBehaviour
     {
         if (other.CompareTag(tagName))
         {
-            Debug.Log("Food set");
             if (col != null)
             {
                 col.enabled = false;

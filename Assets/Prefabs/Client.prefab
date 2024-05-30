@@ -400,7 +400,7 @@ MonoBehaviour:
     - {fileID: 1982925297928428, guid: 75221d19731aa453d81714a24451c72a, type: 3}
     objectParamsNames:
     - register
-    - burguer
+    - burger
     - donut
     - cupcake
     objectParamsLostDefaultValue: 
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTasksPerTick: 500
-  behavior: {fileID: 0}
+  behavior: {fileID: 11400000, guid: 68a80aee105129149ad4cd9d7567a9c7, type: 2}
   paused: 0
   restartWhenFinished: 0
   blackboard:
@@ -535,8 +535,12 @@ MonoBehaviour:
     colorParams: []
     colorParamsNames: []
     colorParamsLostDefaultValue: 
-    objectParams: []
-    objectParamsNames: []
+    objectParams:
+    - {fileID: 887885938454876536}
+    - {fileID: 7333154428204532315}
+    objectParamsNames:
+    - register
+    - this
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -604,6 +608,8 @@ MonoBehaviour:
   activeExecutor: {fileID: 5494973967553260413}
   currentState: 1
   petitions: []
+  money: 0
+  moneyText: {fileID: 0}
   seat: {fileID: 0}
   bathroom: {fileID: 0}
   wishes: {fileID: 8486657899364957828}
@@ -612,6 +618,8 @@ MonoBehaviour:
   wishOnWait: 0
   wishAccomplished: 1
   owingMoney: 0
+  paid: 1
+  leave: 0
 --- !u!114 &8486657899364957828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,6 +668,7 @@ MonoBehaviour:
   - {fileID: 4052750511404064268}
   - {fileID: 2103697849339456794}
   - {fileID: 2013876990244325217}
+  - {fileID: 4069720058586880804}
   image: {fileID: 4292237706298341243}
   takeNote: {fileID: 5050699999838297582}
 --- !u!1 &7426085947532704819
@@ -750,6 +759,7 @@ GameObject:
   - component: {fileID: 4208433479810614251}
   - component: {fileID: 4309319250546538307}
   - component: {fileID: 2013984861843317969}
+  - component: {fileID: 8107908543824441164}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -850,6 +860,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a38c0fdd2f5711b429b44dacd3410495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8107908543824441164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7715269714835666170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8f58370b9464e4b93546899541e01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8093203040702434545

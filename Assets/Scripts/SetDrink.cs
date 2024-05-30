@@ -15,7 +15,6 @@ public class SetDrink : MonoBehaviour
         Register register = other.GetComponent<Register>();
         if (other.CompareTag(tagName) && register != null && !register.wishAccomplished && register.wish.tag == gameObject.tag)
         {
-            Debug.Log("Drink set");
             if (col != null)
             {
                 col.enabled = false;

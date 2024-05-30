@@ -48,6 +48,7 @@ public class WishManager : MonoBehaviour
         }
         int selected = Random.Range(0, behaviors.Count);
         register.activeExecutor = behaviors[selected];
+        Debug.Log("Selected Behavior: " + register.activeExecutor.behavior.brickName);
         register.wishAccomplished = false;
 
         if (register.seat != null)
@@ -55,15 +56,18 @@ public class WishManager : MonoBehaviour
             SetOnTrigger seat = register.seat.GetComponent<SetOnTrigger>();
             if (seat != null)
             {
-                if (register.activeExecutor.behavior.brickName == "Assets/Behaviors/OrderFood.asset" ||
-                    register.activeExecutor.behavior.brickName == "Assets/Behaviors/AskForBill.asset")
+                if (register.activeExecutor.behavior.brickName == "Assets/Behaviors/OrderFood.asset")
                 {
                     takeNote.foodSet = false;
                     register.ActivateBehavior();
                 }
-                // Se levanta si no es pedir comida o pedir la cuenta
+                // Se levanta si no es pedir comida
                 else
                 {
+                    if (register.activeExecutor.behavior.brickName == "Assets/Behaviors/AskForBill.asset")
+                    {
+                        register.leave = true;
+                    }
                     register.StandUp();
                 }
             }

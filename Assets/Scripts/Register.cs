@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,8 @@ public class Register : MonoBehaviour
 
     // Waiter
     public List<GameObject> petitions = new List<GameObject>();
+    public float money = 0;
+    public TextMeshProUGUI moneyText;
 
     // Clients
     public GameObject seat;
@@ -24,6 +27,8 @@ public class Register : MonoBehaviour
     public bool wishOnWait = false;
     public bool wishAccomplished = true;
     public float owingMoney = 0;
+    public bool paid = true;
+    public bool leave = false;
 
     private void Start()
     {
@@ -32,6 +37,16 @@ public class Register : MonoBehaviour
             Debug.LogWarning("BehaviorExecutor not found in " + gameObject.name);
         }
         currentState = State.MOVING;
+
+        GameObject moneyObj = GameObject.Find("Money");
+        if (moneyObj != null)
+        {
+            moneyText = moneyObj.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogError("Money object not found");
+        }
     }
 
     private void Update()
@@ -74,7 +89,6 @@ public class Register : MonoBehaviour
                 }
             }
 
-            Debug.Log("A random behavior has been selected");
             WishManager wishManager = GetComponent<WishManager>();
             if (wishManager != null)
             {
@@ -133,6 +147,7 @@ public class Register : MonoBehaviour
         if (wishes != null && wish != null)
         {
             owingMoney += wishes.GetWishCost(wish);
+            paid = false;
         }
         WishServed();
         wishAccomplished = true;
