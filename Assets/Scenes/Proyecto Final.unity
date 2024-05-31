@@ -1490,6 +1490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Int_RR_DoorFrame_01_Unisex
       objectReference: {fileID: 0}
+    - target: {fileID: 3697451004200987202, guid: 5f635d348fad9f742a95c45e8aceda58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6447489188282255246, guid: 5f635d348fad9f742a95c45e8aceda58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.11
@@ -6855,7 +6859,7 @@ MonoBehaviour:
   m_TileSize: 256
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
+  m_MinRegionArea: 0
   m_NavMeshData: {fileID: 23800000, guid: 39c0e9264f730fb41b8b0744a4cb0577, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &531300229

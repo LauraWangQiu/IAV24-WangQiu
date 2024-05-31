@@ -26,10 +26,14 @@ namespace BBCore.Conditions
                     trigger.ResetSeat();
                 }
             }
-            RestaurantRegister restaurantRegister = GameObject.FindObjectOfType<RestaurantRegister>();
-            if (restaurantRegister != null)
+            
+            if (register.paid)
             {
-                restaurantRegister.RemoveClient(register.gameObject);
+                RestaurantRegister restaurantRegister = GameObject.FindObjectOfType<RestaurantRegister>();
+                if (restaurantRegister != null)
+                {
+                    restaurantRegister.RemoveClient(register.gameObject);
+                }
             }
             return register.paid;
 		}

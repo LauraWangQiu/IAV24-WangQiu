@@ -30,7 +30,7 @@ public class TakeNote : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //OnTrigger(other);
+        OnTrigger(other);
     }
 
     private void OnTrigger(Collider other)
@@ -47,7 +47,6 @@ public class TakeNote : MonoBehaviour
                      myRegister.wish.tag == "Doughnut"))
                 {
                     register.petitions.Add(new Petition(myRegister.wish, myRegister.GetComponent<ID>().id, myRegister.gameObject));
-                    //register.toGive.Add(myRegister.gameObject);
                 }
                 myRegister.wishOnWait = true;
             }

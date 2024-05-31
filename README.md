@@ -22,11 +22,11 @@ Habrá una cola de clientes, unas mesas con dos asientos cada mesa, un espacio p
 
 ### Característica B
 
-Los clientes tendrán una lista de deseos: pedir comida (y dentro del menú, cualquier plato), pedir bebida (cualquiera), ir al baño o pedir la cuenta para irse. Depende de cada deseo, los clientes cambiarán de comportamiento.
+Los clientes tendrán una lista de deseos: pedir comida (y dentro del menú, cualquier plato), pedir bebida (cualquiera), ir al baño o pedir la cuenta para irse. Depende de cada deseo, los clientes cambiarán de comportamiento. Estos mismos comportamientos se explican en el apartado de `Diseño de la solución`.
 
 ### Característica C
 
-El baño está compuesto por dos lavabos, por lo que es posible que se genere una cola para ir.
+El baño está compuesto por dos lavabos, por lo que es posible que se genere una cola. Los clientes se dirigirán al baño y esperarán a que haya un lavabo libre para poder entrar.
 
 ## Punto de partida
 
@@ -36,6 +36,11 @@ Partimos de un proyecto en blanco con las siguientes características:
 
 - **ProyectoFinal**: escena en la que se desarrollará el proyecto.
 - **BehaviorBricks**: asset pack de Behavior Bricks para Unity.
+
+Y partimos de los siguientes conocimientos:
+
+- Para intercambiar el comportamiento principal de un agente, hace falta activar el que se quiere y desactivar el que se estaba ejecutando.
+- No se puede cambiar el brick asset ni parar la ejecución de un comportamiento si está activado el componente.
 
 ## Diseño de la solución
 
@@ -57,17 +62,15 @@ La idea es priorizar la entrega de comida, seguido de la toma de pedidos y la re
 
 Es muy importante que `Jorge` no se quede parado en ningún momento y teniendo en cuenta que las acciones tienen un tiempo de ejecución, se deberá tener en cuenta el tiempo de espera máximo para cada acción.
 
-Los platos de comida tendrán un tiempo de enfriamiento, por lo que si `Jorge` no los entrega a tiempo, los clientes se enfadarán. Es por eso que se encuentra en la primera rama del árbol de comportamiento.
+Los platos de comida tendrán un tiempo de enfriamiento que desafortunadamente no hay un feedback visual durante la ejecución, pero se puede observar en el inspector del Editor de Unity al seleccionar la comida. Una vez que alguno de estos platos baje de `X` tiempo, `Jorge` se verá obligado a recoger la comida y llevárselo al cliente.
 
-Luego, se encuentra la toma de pedidos pues es la segunda acción más importante. Si no se toman los pedidos a tiempo, los clientes se enfadarán. Además, tras llevar la tanda a la cocina, se deberá esperar a que los platos estén listos por lo que durante ese tiempo, `Jorge` podrá realizar otras acciones.
-
-La recogida de dinero es la tercera acción más importante. Esto es debido a que si no se cobra a los clientes, no se podrá asignar la mesa a otro cliente.
+En cuanto a la toma de pedidos, tras llevar la tanda a la cocina, se deberá esperar a que los platos estén listos por lo que durante ese tiempo, `Jorge` podrá realizar otras acciones.
 
 Los clientes tendrán una lista de deseos y cada deseo tendrá un árbol de comportamiento que les permitirán pedir comida, coger bebida, ir al baño e ir a pagar la cuenta.
 
-Cada vez que un cliente termine su deseo, se le asignará otro de forma aleatoria (`SelectRandomBehavior`).
+Cada vez que un cliente termine su deseo, se le asignará otro de forma aleatoria (`SelectRandomBehavior`). Esto ocurre siempre tras sentarse nuevamente a su mesa.
 
-Los deseos que tendrán los clientes son:
+Los diagramas de los deseos que tendrán los clientes son:
 
 - **Pedir comida**: si previamente se han sentado, podrán pedir un plato de comida.
 
@@ -84,7 +87,7 @@ flowchart TD
 
 Una vez recibida la comida, se les sumará en la cuenta del cliente el precio de la bebida `owingMoney`.
 
-Con el RandomSelector, se seleccionará un plato de comida de forma aleatoria entre las propuestas. Se añadirá el cliente a la lista de `orders`.
+Con el RandomSelector (~?), se seleccionará un plato de comida de forma aleatoria entre las propuestas.
 
 - **Coger bebida**: si previamente se han sentado, podrán coger una bebida.
 
@@ -107,7 +110,7 @@ flowchart TD
 
 Una vez cogida la bebida, se les sumará en la cuenta del cliente el precio de la bebida `owingMoney`.
 
-Con el RandomSelector, se seleccionará una bebida de forma aleatoria entre las propuestas. Luego, se moverá hacia la máquina de bebidas, cogerá la bebida, comprobará si la ha cogido y se dirigirá a la mesa.
+Con el RandomSelector (~?), se seleccionará una bebida de forma aleatoria entre las propuestas. Luego, se moverá hacia la máquina de bebidas, cogerá la bebida, comprobará si la ha cogido y se dirigirá a la mesa.
 
 - **Ir al baño**:
 
@@ -121,12 +124,13 @@ flowchart TD
     E -->F(("?"))
     F -->|CheckBathroom| G[MoveToBathroom]
     B -->H[WaitForSeconds]
-    B -->I[MoveToTable]
+    B -->I[DisassignBathroom]
+    B -->J[MoveToTable]
 ```
 
 Se mueve al punto de espera, espera a que haya un lavabo libre y se dirige al lavabo. Se esperará una cierta cantidad de tiempo en el baño y, una vez terminado, se dirigirá a la mesa.
 
-- **Pedir la cuenta**: si previamente tomaron algo (comida o bebida), se dirigirán a la caja para pagar.
+- **Pedir la cuenta**:
 
 ```mermaid
 flowchart TD
@@ -141,22 +145,17 @@ flowchart TD
 
 Se dirigirá a la caja, comprobará si ha pagado y una vez pagado se mueve a la salida y se destruye su instancia.
 
-## Pruebas y métricas
+## Pruebas
 
 | Pruebas | Links |
 |:-:|:-:|
-| **Característica A** | |
-| Al pulsar el `SPACE`, se intentará controlar a `Jorge` clicando en la escena. Al pulsar nuevamente el `SPACE`, `Jorge` volverá a ser manejado por la IA | []() |
-
-| Pruebas | Links |
-|:-:|:-:|
-| **Característica B** | |
-| Comprobar que los clientes pidan comida y bebida aleatorios. | []() |
-
-| Pruebas | Links |
-|:-:|:-:|
-| **Característica C** | |
-| Asignar a varios clientes el deseo de ir al baño. Comprobar que se genera una cola de espera. | []() |
+| Al pulsar el `SPACE`, se intentará controlar a `Jorge` clicando en la escena. Al pulsar nuevamente el `SPACE`, `Jorge` volverá a ser manejado por la IA | [Space](https://drive.google.com/file/d/1wrCsgnLa8WZ0ErL16Q4oGY1PC9p4TNbu/view?usp=sharing) |
+| Comprobar que los clientes pidan comida y bebida aleatorios. | - [Pedir comida aleatoria](https://drive.google.com/file/d/1C75uezfVopQQaNjQAZjBoKp7lRQmHPFH/view?usp=sharing) <br> - [Escoger bebida aleatoria](https://drive.google.com/file/d/1wEDtBlnEJrz1btSi0mti8SedACCnd8u9/view?usp=sharing) |
+| Asignar a varios clientes el deseo de ir al baño. Comprobar que se genera una cola de espera. | [Gestión de los lavabos](https://drive.google.com/file/d/1EWv_H4ov2E2bXxu_UXkmY3D6n1PkP_IO/view?usp=sharing) |
+| Comprobar que los clientes paguen la cuenta y se vayan si previamente han comido o bebido. | - [Habiendo comido o bebido](https://drive.google.com/file/d/1uhP2gCptH9xFxv-qbfRP8FjjFekhG6T3/view?usp=sharing) <br> - [Sin comer o beber](https://drive.google.com/file/d/1O5HjVCLjjIAe3Ngn8WOhTeyufrzdmAfR/view?usp=sharing) |
+| Comprobar que si hay comida sacada, la IA lo llevará al cliente indicado | [TakeOrder](https://drive.google.com/file/d/1HH1CxYdmweEUKNMzZSVatsUi3GMjbKbb/view?usp=sharing) |
+| Comprobar que si hay más de un cliente para tomar nota, la IA pasará por todos | [GiveOrder](https://drive.google.com/file/d/1_A9ww-2uO10aW1HnXkXe7YtFC9xWRyow/view?usp=sharing) |
+| Comprobar que el camarero se acerque a la caja si hay clientes que han pedido la cuenta | [TakeMoney](https://drive.google.com/file/d/13sy5MiUAR_ZaA_ZsMKani1cuBsufyOre/view?usp=sharing) |
 
 ## Producción
 
