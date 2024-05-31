@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace BBUnity.Actions
 {
-    [Action("GameObject/ReturnNextClientWithOrder")]
-    [Help("Returns the client with order")]
-    public class ReturnNextClientWithOrder : GOAction
+    [Action("GameObject/ReturnNextClientWithOrderToGive")]
+    [Help("Returns the client with order to give")]
+    public class ReturnNextClientWithOrderToGive : GOAction
     {
         [OutParam("client")]
         [Help("The client with order")]
@@ -14,10 +14,10 @@ namespace BBUnity.Actions
 
         public override void OnStart()
         {
-            RestaurantRegister register = GameObject.FindAnyObjectByType<RestaurantRegister>();
-            if (register != null && register.orders.Count > 0)
+            Register register = gameObject.GetComponent<Register>();
+            if (register != null && register.toGive.Count > 0)
             {
-                client = register.orders[0].transform.Find("ContactPosition").gameObject;
+                client = register.toGive[0];
             }
             else
             {

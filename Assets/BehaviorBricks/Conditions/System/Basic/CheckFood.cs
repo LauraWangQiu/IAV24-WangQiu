@@ -8,7 +8,7 @@ namespace BBCore.Conditions
     [Help("Checks if there is food and the cooldown of any is less than value")]
     public class CheckFood : ConditionBase
     {
-        [OutParam("Value")]
+        [InParam("Value")]
         [Help("Limit cooldown time")]
         public float value;
 
@@ -31,7 +31,7 @@ namespace BBCore.Conditions
             }
 
             FoodPoint foodPointComp = foodPoint.GetComponent<FoodPoint>();
-            if (foodPointComp == null || !foodPointComp.isThereFood)
+            if (foodPointComp == null)
             {
                 return false;
             }
@@ -67,7 +67,7 @@ namespace BBCore.Conditions
                     break;
                 }
             }
-            return foodPointComp.isThereFood && (cooldown || (restaurantRegister.orders.Count == 0 && !isThereMoney));
+            return cooldown || (restaurantRegister.ordersToComplete.Count == 0 && !isThereMoney);
         }
     }
 }

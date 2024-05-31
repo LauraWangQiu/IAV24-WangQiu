@@ -14,10 +14,8 @@ namespace BBUnity.Actions
             if (register != null)
             {
                 // Anade el cliente a la lista de ordenes
-                if (!register.orders.Contains(gameObject))
-                {
-                    register.orders.Add(gameObject);
-                }
+                register.AddOrder(gameObject);
+                register.AddOrderToComplete(gameObject);
             }
         }
 

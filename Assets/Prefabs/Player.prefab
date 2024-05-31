@@ -344,6 +344,7 @@ MonoBehaviour:
   activeExecutor: {fileID: 5409081073481903077}
   currentState: 1
   petitions: []
+  toGive: []
   money: 0
   moneyText: {fileID: 0}
   restaurantRegister: {fileID: 0}

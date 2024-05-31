@@ -9,11 +9,13 @@ public class Petition
 {
     public GameObject obj;
     public int id;
+    public GameObject client;
 
-    public Petition(GameObject obj, int id)
+    public Petition(GameObject obj, int id, GameObject client)
     {
         this.obj = obj;
         this.id = id;
+        this.client = client;
     }
 }
 
@@ -183,6 +185,14 @@ public class Register : MonoBehaviour
         if (restaurantRegister != null)
         {
             restaurantRegister.RemoveOrder(gameObject);
+        }
+    }
+
+    public void WishAssistedToComplete()
+    {
+        if (restaurantRegister != null)
+        {
+            restaurantRegister.RemoveOrderToComplete(gameObject);
         }
     }
 }

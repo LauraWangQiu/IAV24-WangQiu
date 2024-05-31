@@ -25,6 +25,16 @@ public class TakeNote : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        OnTrigger(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        //OnTrigger(other);
+    }
+
+    private void OnTrigger(Collider other)
+    {
         if (myRegister != null && other.CompareTag(tagName))
         {
             Register register = other.GetComponent<Register>();
@@ -36,9 +46,9 @@ public class TakeNote : MonoBehaviour
                      myRegister.wish.tag == "Cupcake" ||
                      myRegister.wish.tag == "Doughnut"))
                 {
-                    register.petitions.Add(new Petition(myRegister.wish, myRegister.GetComponent<ID>().id));
+                    register.petitions.Add(new Petition(myRegister.wish, myRegister.GetComponent<ID>().id, myRegister.gameObject));
                     register.toGive.Add(myRegister.gameObject);
-                    myRegister.WishAssisted();
+                    register.WishAssistedToComplete();
                 }
                 myRegister.wishOnWait = true;
             }
@@ -82,10 +92,5 @@ public class TakeNote : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-
     }
 }

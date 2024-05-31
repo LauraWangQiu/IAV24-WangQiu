@@ -21,9 +21,8 @@ MonoBehaviour:
     />\r\n          <entry name=\"burger\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
     />\r\n          <entry name=\"donut\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
     />\r\n          <entry name=\"cupcake\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
-    />\r\n          <entry name=\"restaurantRegister\" type=\"RestaurantRegister\"
-    isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"food\" type=\"UnityEngine.GameObject\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
+    <outputValues>\r\n          <entry name=\"food\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" />\r\n          <entry name=\"drinkMachine\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
     <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator id=\"1\" loops=\"-1\"

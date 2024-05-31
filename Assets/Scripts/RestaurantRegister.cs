@@ -7,6 +7,7 @@ public class RestaurantRegister : MonoBehaviour
     public List<GameObject> bathrooms = new List<GameObject>();
     public List<GameObject> clients = new List<GameObject>();
     public List<GameObject> orders = new List<GameObject>();
+    public List<GameObject> ordersToComplete = new List<GameObject>();
 
     public int currentClientId = 0;
 
@@ -32,7 +33,10 @@ public class RestaurantRegister : MonoBehaviour
 
     public void AddOrder(GameObject order)
     {
-        orders.Add(order);
+        if (!orders.Contains(order))
+        {
+            orders.Add(order);
+        }
     }
 
     public void RemoveOrder(GameObject order)
@@ -40,6 +44,22 @@ public class RestaurantRegister : MonoBehaviour
         if (orders.Contains(order))
         {
             orders.Remove(order);
+        }
+    }
+
+    public void AddOrderToComplete(GameObject order)
+    {
+        if (!ordersToComplete.Contains(order))
+        {
+            ordersToComplete.Add(order);
+        }
+    }
+
+    public void RemoveOrderToComplete(GameObject order)
+    {
+        if (ordersToComplete.Contains(order))
+        {
+            ordersToComplete.Remove(order);
         }
     }
 
