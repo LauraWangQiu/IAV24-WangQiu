@@ -275,8 +275,12 @@ MonoBehaviour:
     colorParams: []
     colorParamsNames: []
     colorParamsLostDefaultValue: 
-    objectParams: []
-    objectParamsNames: []
+    objectParams:
+    - {fileID: 4885707310374143295}
+    - {fileID: 4885707310374143295}
+    objectParamsNames:
+    - register
+    - register
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []

@@ -12,6 +12,10 @@ namespace BBUnity.Actions
         [Help("The client with order")]
         public GameObject client;
 
+        [InParam("Zero")]
+        [Help("Zero object")]
+        public GameObject zero;
+
         public override void OnStart()
         {
             Register register = gameObject.GetComponent<Register>();
@@ -21,7 +25,7 @@ namespace BBUnity.Actions
             }
             else
             {
-                client = null;
+                client = zero;
             }
         }
 

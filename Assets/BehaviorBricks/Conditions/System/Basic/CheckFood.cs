@@ -12,6 +12,10 @@ namespace BBCore.Conditions
         [Help("Limit cooldown time")]
         public float value;
 
+        [InParam("Register")]
+        [Help("Reference to the Register of the GameObject")]
+        public Register register;
+
         [OutParam("GetFoodPoint")]
         [Help("Place where to get food")]
         public GameObject getFoodPoint;
@@ -67,7 +71,7 @@ namespace BBCore.Conditions
                     break;
                 }
             }
-            return foodPointComp.foodList.Count > 0 && (cooldown || (restaurantRegister.ordersToComplete.Count == 0 && !isThereMoney));
+            return foodPointComp.foodList.Count > 0 && register.toGive.Count > 0 && (cooldown || (restaurantRegister.ordersToComplete.Count == 0 && !isThereMoney));
         }
     }
 }

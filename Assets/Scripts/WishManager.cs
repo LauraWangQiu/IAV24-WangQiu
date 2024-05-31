@@ -47,8 +47,7 @@ public class WishManager : MonoBehaviour
             return;
         }
         int selected = Random.Range(0, behaviors.Count);
-        //register.activeExecutor = behaviors[selected];
-        register.activeExecutor = behaviors[1];
+        register.activeExecutor = behaviors[selected];
         register.wishAccomplished = false;
 
         if (register.seat != null)

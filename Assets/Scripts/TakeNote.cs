@@ -59,7 +59,6 @@ public class TakeNote : MonoBehaviour
                 {
                     foreach (Transform child in catchPosition)
                     {
-                        Debug.Log("Food ID: " + child.GetComponent<ID>().id + " Client ID: " + myRegister.GetComponent<ID>().id);
                         if (child.CompareTag(myRegister.wish.tag) &&
                             child.GetComponent<ID>().id == myRegister.GetComponent<ID>().id)
                         {

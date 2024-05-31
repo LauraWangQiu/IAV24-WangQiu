@@ -28,14 +28,6 @@ Los clientes tendrán una lista de deseos: pedir comida (y dentro del menú, cua
 
 El baño está compuesto por dos lavabos, por lo que es posible que se genere una cola para ir.
 
-### Característica D
-
-Todas las acciones implican cierta cantidad de tiempo, por ejemplo, atender a los clientes en la mesa, hacer los platos, ir al baño, etc.
-
-### Característica E
-
-Los clientes se enfadarán si `Jorge` tarda mucho en atenderles o servirles los platos o llevarles las bebidas.
-
 ## Punto de partida
 
 La versión de Unity utilizada es **Unity 2022.3.5f1**.
@@ -54,9 +46,9 @@ Realizaremos diferentes árboles de comportamiento para `Jorge` y los clientes:
 ```mermaid
 flowchart TD
     A(("↺")) --> B((?))
-    B -->|"IsThereFood && (Food.TimeToCoolDown < X || (!IsThereOrder && !IsThereMoney))"| C[MoveSequence/MoveToFood,MoveToClient,GiveFood]
+    B -->|"IsThereFood && (Food.TimeToCoolDown < X || (!IsThereOrder && !IsThereMoney))"| C[MoveSequence/MoveToFood,MoveToClient,GiveOrder]
     B -->|"IsThereOrder"| D[MoveSequence/MoveToClient,TakeOrder,MoveToKitchen,GiveOrder]
-    B -->|"IsThereMoney"| E[MoveSequence/MoveToChecl,TakeMoney]
+    B -->|"IsThereMoney"| E[MoveSequence/MoveToCheckPoint,TakeMoney]
 ```
 
 La variable `X` será el tiempo de espera máximo para cada acción.
@@ -159,24 +151,12 @@ Se dirigirá a la caja, comprobará si ha pagado y una vez pagado se mueve a la 
 | Pruebas | Links |
 |:-:|:-:|
 | **Característica B** | |
-| Comprobar que los clientes pidan comida y bebida aleatorios. Primero, solo dando una opción de comida y bebida. Luego, con más de una opción. | []() |
-|  | []() |
+| Comprobar que los clientes pidan comida y bebida aleatorios. | []() |
 
 | Pruebas | Links |
 |:-:|:-:|
 | **Característica C** | |
 | Asignar a varios clientes el deseo de ir al baño. Comprobar que se genera una cola de espera. | []() |
-| Comprobar que después de un determinado tiempo, se libera un lavabo. | []() |
-
-| Pruebas | Links |
-|:-:|:-:|
-| **Característica D** | |
-| Aplicar diferentes tiempos a cada acción. Comprobarlos desde la consola. | []() |
-
-| Pruebas | Métricas | Links |
-|:-:|:-:|:-:|
-| **Característica E** | | |
-| Comprobar el estado de enfado de los clientes. Manejando a `Jorge` sin IA, dejar que el tiempo de espera de los clientes aumente y se enfaden. | []() |
 
 ## Producción
 
@@ -185,11 +165,9 @@ Observa la tabla de abajo para ver el estado y las fechas de realización de las
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
 | ✔️ | Diseño: Primer borrador | 15-05-2024 |
-|  | Característica A | ..-05-2024 |
+| ✔️ | Característica A | 31-05-2024 |
 | ✔️ | Característica B | 30-05-2024 |
 | ✔️ | Característica C | 30-05-2024 |
-|  | Característica D | ..-05-2024 |
-|  | Característica E | ..-05-2024 |
 
 ## Licencia
 
