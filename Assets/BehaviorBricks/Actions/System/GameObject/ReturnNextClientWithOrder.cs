@@ -15,9 +15,10 @@ namespace BBUnity.Actions
         public override void OnStart()
         {
             RestaurantRegister register = GameObject.FindAnyObjectByType<RestaurantRegister>();
-            if (register != null && register.orders.Count > 0)
+            if (register != null && register.ordersToComplete.Count > 0)
             {
-                client = register.orders[0].transform.Find("ContactPosition").gameObject;
+                client = register.ordersToComplete[0].transform.Find("ContactPosition").gameObject;
+                register.RemoveOrderToComplete(register.ordersToComplete[0]);
             }
             else
             {

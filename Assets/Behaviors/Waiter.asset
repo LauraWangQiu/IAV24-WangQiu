@@ -15,7 +15,7 @@ MonoBehaviour:
   brickName: Assets/Behaviors/Waiter.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"d29791669e443ac468980ca54d57042e\" nextId=\"28\">\r\n      <root>\r\n       
+    id=\"0\" guid=\"d29791669e443ac468980ca54d57042e\" nextId=\"29\">\r\n      <root>\r\n       
     <RepeatDecorator id=\"4\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"X\" type=\"System.Single\" isBlackboard=\"False\"
     />\r\n          <entry name=\"register\" type=\"Register\" isBlackboard=\"False\"
@@ -30,64 +30,29 @@ MonoBehaviour:
     id=\"8\" />\r\n      </child>\r\n      <inputParams />\r\n      <outputParams
     />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <PrioritySelectorNode
     id=\"8\">\r\n      <children>\r\n        <elem>\r\n          <GuardAndNode>\r\n           
-    <guard>\r\n              <ConditionEvalNode id=\"14\" />\r\n            </guard>\r\n           
-    <child>\r\n              <SubbehaviorNode id=\"9\" />\r\n            </child>\r\n         
-    </GuardAndNode>\r\n        </elem>\r\n        <elem>\r\n          <GuardAndNode>\r\n           
-    <guard>\r\n              <ConditionEvalNode id=\"23\" />\r\n            </guard>\r\n           
+    <guard>\r\n              <ConditionEvalNode id=\"28\" />\r\n            </guard>\r\n           
     <child>\r\n              <SubbehaviorNode id=\"19\" />\r\n            </child>\r\n         
-    </GuardAndNode>\r\n        </elem>\r\n        <elem>\r\n          <GuardAndNode>\r\n           
-    <guard>\r\n              <ConditionEvalNode id=\"27\" />\r\n            </guard>\r\n           
-    <child>\r\n              <SubbehaviorNode id=\"26\" />\r\n            </child>\r\n         
     </GuardAndNode>\r\n        </elem>\r\n        <elem>\r\n          <GuardAndNode>\r\n           
     <guard>\r\n              <ConditionEvalNode id=\"25\" />\r\n            </guard>\r\n           
     <child>\r\n              <ActionNode id=\"24\" />\r\n            </child>\r\n         
     </GuardAndNode>\r\n        </elem>\r\n      </children>\r\n      <inputParams
     />\r\n      <outputParams />\r\n      <localParams />\r\n    </PrioritySelectorNode>\r\n   
-    <ConditionEvalNode id=\"14\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"Basic/CheckFood\">\r\n     
-    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Value\" type=\"System.Single\"
-    isBlackboard=\"True\" blackboard=\"X\" />\r\n          <entry name=\"Register\"
-    type=\"Register\" isBlackboard=\"True\" blackboard=\"register\" />\r\n       
-    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
+    <ConditionEvalNode id=\"28\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"Basic/CheckOrder\">\r\n     
+    <inputParams />\r\n      <outputParams>\r\n        <outputValues>\r\n         
     <entry name=\"GetFoodPoint\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
     blackboard=\"getFoodPoint\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
-    <localParams />\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"9\">\r\n     
-    <_guid>9512964481a0a8149ba5f3d3dd04a6c5</_guid>\r\n      <inputParams>\r\n       
-    <inputValues>\r\n          <entry name=\"foodpoint\" type=\"UnityEngine.GameObject\"
-    isBlackboard=\"True\" blackboard=\"foodPoint\" />\r\n          <entry name=\"client\"
-    type=\"UnityEngine.GameObject\" isBlackboard=\"False\" />\r\n          <entry
-    name=\"X\" type=\"System.Single\" isBlackboard=\"True\" blackboard=\"X\" />\r\n         
-    <entry name=\"getFoodPoint\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
-    blackboard=\"getFoodPoint\" />\r\n          <entry name=\"zero\" type=\"UnityEngine.Vector3\"
-    isBlackboard=\"True\" blackboard=\"zero\" />\r\n        </inputValues>\r\n     
-    </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n   
-    <ConditionEvalNode id=\"23\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"Basic/CheckOrder\">\r\n     
-    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"register\"
-    type=\"Register\" isBlackboard=\"True\" blackboard=\"register\" />\r\n       
-    </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n        <outputValues>\r\n         
-    <entry name=\"GetFoodPoint\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
-    blackboard=\"getFoodPoint2\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
     <localParams />\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"19\">\r\n     
     <_guid>4d61af88d40ea9245b4c410fc50b546a</_guid>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"foodPoint\" type=\"UnityEngine.GameObject\"
-    isBlackboard=\"True\" blackboard=\"getFoodPoint2\" />\r\n          <entry name=\"getFoodPoint2\"
+    isBlackboard=\"True\" blackboard=\"getFoodPoint\" />\r\n          <entry name=\"getFoodPoint2\"
     type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"getFoodPoint2\"
     />\r\n          <entry name=\"zero\" type=\"UnityEngine.Vector3\" isBlackboard=\"True\"
     blackboard=\"zero\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams />\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n    <ConditionEvalNode
-    id=\"27\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"Basic/CheckMoney\">\r\n     
-    <inputParams />\r\n      <outputParams>\r\n        <outputValues>\r\n         
-    <entry name=\"CheckPoint\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
-    blackboard=\"checkPoint\" />\r\n        </outputValues>\r\n      </outputParams>\r\n     
-    <localParams />\r\n    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"26\">\r\n     
-    <_guid>aef6c83bf7aef3144afacfebf4f7d704</_guid>\r\n      <inputParams>\r\n       
-    <inputValues>\r\n          <entry name=\"checkPoint\" type=\"UnityEngine.GameObject\"
-    isBlackboard=\"True\" blackboard=\"checkPoint\" />\r\n          <entry name=\"zero\"
-    type=\"UnityEngine.Vector3\" isBlackboard=\"True\" blackboard=\"zero\" />\r\n       
-    </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n      <localParams
-    />\r\n    </SubbehaviorNode>\r\n    <ConditionEvalNode id=\"25\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\"
-    name=\"AlwaysTrue\">\r\n      <inputParams />\r\n      <outputParams />\r\n     
-    <localParams />\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"24\" action=\"Navigation/MoveToGameObject\">\r\n     
-    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
+    id=\"25\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"AlwaysTrue\">\r\n     
+    <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n   
+    <ActionNode id=\"24\" action=\"Navigation/MoveToGameObject\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"zero\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n 
     </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"Waiter\"
@@ -95,66 +60,68 @@ MonoBehaviour:
     <elem>\r\n          <RepeatDecorator id=\"4\" />\r\n        </elem>\r\n       
     <elem>\r\n          <PrioritySelectorNode id=\"8\" />\r\n        </elem>\r\n       
     <elem>\r\n          <SubbehaviorNode id=\"9\" />\r\n        </elem>\r\n       
-    <elem>\r\n          <ConditionEvalNode id=\"14\" />\r\n        </elem>\r\n       
     <elem>\r\n          <SubbehaviorNode id=\"19\" />\r\n        </elem>\r\n       
-    <elem>\r\n          <ConditionEvalNode id=\"23\" />\r\n        </elem>\r\n       
     <elem>\r\n          <ActionNode id=\"24\" />\r\n        </elem>\r\n        <elem>\r\n         
     <ConditionEvalNode id=\"25\" />\r\n        </elem>\r\n        <elem>\r\n         
     <SubbehaviorNode id=\"26\" />\r\n        </elem>\r\n        <elem>\r\n         
-    <ConditionEvalNode id=\"27\" />\r\n        </elem>\r\n      </_rootList>\r\n     
+    <ConditionEvalNode id=\"28\" />\r\n        </elem>\r\n      </_rootList>\r\n     
     <_nodes>\r\n        <nodes>\r\n          <RepeatDecorator id=\"4\" />\r\n         
     <SubbehaviorNode id=\"9\" />\r\n          <PrioritySelectorNode id=\"8\" />\r\n         
-    <ConditionEvalNode id=\"14\" />\r\n          <SubbehaviorNode id=\"19\" />\r\n         
-    <ConditionEvalNode id=\"23\" />\r\n          <ActionNode id=\"24\" />\r\n         
-    <ConditionEvalNode id=\"25\" />\r\n          <SubbehaviorNode id=\"26\" />\r\n         
-    <ConditionEvalNode id=\"27\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
-    </BehaviorTree>\r\n    <RepeatDecorator id=\"4\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"436.0293 -22.36664\" name=\"Repeat\"
-    description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
+    <ConditionEvalNode id=\"28\" />\r\n          <SubbehaviorNode id=\"19\" />\r\n         
+    <ActionNode id=\"24\" />\r\n          <ConditionEvalNode id=\"25\" />\r\n         
+    <SubbehaviorNode id=\"26\" />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n   
+    <RepeatDecorator id=\"4\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"False\" position=\"377.1404 -16.81108\" name=\"Repeat\" description=\"Repeats
+    the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"4\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <PrioritySelectorNode
     id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"379.5956 101.8667\" name=\"Priority Selector\" description=\"\" cardinality=\"1\"
+    position=\"320.7066 107.4223\" name=\"Priority Selector\" description=\"\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <PrioritySelectorNode
     id=\"8\" />\r\n          <RepeatDecorator id=\"4\" />\r\n        </data>\r\n     
-    </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"14\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"78.30366
-    378.1237\" name=\"Basic/CheckFood\" description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"14\" />\r\n         
-    <PrioritySelectorNode id=\"8\" />\r\n        </data>\r\n      </_data>\r\n   
-    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"9\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"55.42864 251.3112\" name=\"WaiterGiveOrder\"
-    description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n          <BehaviorTree
-    id=\"0\" />\r\n          <SubbehaviorNode id=\"9\" />\r\n        </data>\r\n     
-    </_data>\r\n    </SubbehaviorNode>\r\n    <ConditionEvalNode id=\"23\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"358.0956
-    377.1167\" name=\"Basic/CheckOrder\" description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"23\" />\r\n         
+    </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"28\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"171.6802
+    255.7465\" name=\"Basic/CheckOrder\" description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"28\" />\r\n         
     <PrioritySelectorNode id=\"8\" />\r\n        </data>\r\n      </_data>\r\n   
     </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"19\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"285.8456 245.6167\" name=\"WaiterTakeOrder\"
+    <data breakpoint=\"0\" selected=\"True\" position=\"141.4012 222.2829\" name=\"WaiterTakeOrder\"
     description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <SubbehaviorNode id=\"19\" />\r\n        </data>\r\n     
-    </_data>\r\n    </SubbehaviorNode>\r\n    <ConditionEvalNode id=\"27\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"651.5317
-    344.9292\" name=\"Basic/CheckMoney\" description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"27\" />\r\n         
-    <PrioritySelectorNode id=\"8\" />\r\n        </data>\r\n      </_data>\r\n   
-    </ConditionEvalNode>\r\n    <SubbehaviorNode id=\"26\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"504.596 246.8667\" name=\"WaiterTakeMoney\"
-    description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n          <BehaviorTree
-    id=\"0\" />\r\n          <SubbehaviorNode id=\"26\" />\r\n        </data>\r\n     
     </_data>\r\n    </SubbehaviorNode>\r\n    <ConditionEvalNode id=\"25\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"895.9066
-    353.9917\" name=\"AlwaysTrue\" description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n         
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"773.6857
+    313.9916\" name=\"AlwaysTrue\" description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode id=\"25\" />\r\n         
     <PrioritySelectorNode id=\"8\" />\r\n        </data>\r\n      </_data>\r\n   
     </ConditionEvalNode>\r\n    <ActionNode id=\"24\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"738.3443 254.3667\" name=\"Navigation/MoveToGameObject\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"616.122 214.3666\" name=\"Navigation/MoveToGameObject\"
     description=\"Moves the game object towards a given target by using a NavMeshAgent\"
     cardinality=\"0\" hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"24\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n 
-    </editorInfo>\r\n</BehaviorBricks>"
+    </editorInfo>\r\n  <runtimeInfo>\r\n    <SubbehaviorNode id=\"9\">\r\n      <_guid>9512964481a0a8149ba5f3d3dd04a6c5</_guid>\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"foodpoint\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"foodPoint\"
+    />\r\n          <entry name=\"client\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
+    />\r\n          <entry name=\"X\" type=\"System.Single\" isBlackboard=\"True\"
+    blackboard=\"X\" />\r\n          <entry name=\"getFoodPoint\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"getFoodPoint\" />\r\n          <entry name=\"zero\"
+    type=\"UnityEngine.Vector3\" isBlackboard=\"True\" blackboard=\"zero\" />\r\n       
+    </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n      <localParams
+    />\r\n    </SubbehaviorNode>\r\n    <SubbehaviorNode id=\"26\">\r\n      <_guid>aef6c83bf7aef3144afacfebf4f7d704</_guid>\r\n     
+    <inputParams>\r\n        <inputValues>\r\n          <entry name=\"checkPoint\"
+    type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"checkPoint\"
+    />\r\n          <entry name=\"zero\" type=\"UnityEngine.Vector3\" isBlackboard=\"True\"
+    blackboard=\"zero\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SubbehaviorNode>\r\n  </runtimeInfo>\r\n 
+    <editorInfo>\r\n    <SubbehaviorNode id=\"9\">\r\n      <_data>\r\n        <data
+    breakpoint=\"0\" selected=\"False\" position=\"-49.01577 366.8668\" name=\"WaiterGiveOrder\"
+    description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <SubbehaviorNode id=\"9\" />\r\n        </data>\r\n     
+    </_data>\r\n    </SubbehaviorNode>\r\n    <SubbehaviorNode id=\"26\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"433.4848
+    379.0889\" name=\"WaiterTakeMoney\" description=\"\" cardinality=\"-1\" hasParent=\"False\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <SubbehaviorNode id=\"26\" />\r\n       
+    </data>\r\n      </_data>\r\n    </SubbehaviorNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.9
   subslist:
   - {fileID: 11400000, guid: 296b6e51cf3a67a4f92361c39d732304, type: 2}

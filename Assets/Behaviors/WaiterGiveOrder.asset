@@ -15,7 +15,7 @@ MonoBehaviour:
   brickName: Assets/Behaviors/WaiterGiveOrder.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"9512964481a0a8149ba5f3d3dd04a6c5\" nextId=\"21\">\r\n      <root>\r\n       
+    id=\"0\" guid=\"9512964481a0a8149ba5f3d3dd04a6c5\" nextId=\"23\">\r\n      <root>\r\n       
     <SequenceNode id=\"17\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"X\" type=\"System.Single\" isBlackboard=\"False\"
     />\r\n          <entry name=\"getFoodPoint\" type=\"UnityEngine.GameObject\"
@@ -25,14 +25,20 @@ MonoBehaviour:
     <entry name=\"client\" type=\"UnityEngine.GameObject\" isBlackboard=\"False\"
     />\r\n        </localValues>\r\n      </localParams>\r\n    </BehaviorTree>\r\n   
     <SequenceNode id=\"17\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
-    id=\"14\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"7\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\" />\r\n       
-    </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode id=\"14\"
-    action=\"Navigation/MoveToGameObject\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
-    <entry name=\"target\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
-    blackboard=\"getFoodPoint\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode
+    id=\"14\" />\r\n        </elem>\r\n        <elem>\r\n          <RepeatDecorator
+    id=\"21\" />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
+    id=\"14\" action=\"Navigation/MoveToGameObject\">\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"target\" type=\"UnityEngine.GameObject\"
+    isBlackboard=\"True\" blackboard=\"getFoodPoint\" />\r\n        </inputValues>\r\n     
+    </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n   
+    <RepeatDecorator id=\"21\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
+    <child>\r\n        <SequenceNode id=\"22\" />\r\n      </child>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
+    <SequenceNode id=\"22\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
+    id=\"7\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\"
+    />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
     id=\"7\" action=\"GameObject/ReturnNextClientWithOrderToGive\">\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"Zero\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"zero\" />\r\n        </inputValues>\r\n     
@@ -48,30 +54,43 @@ MonoBehaviour:
     <elem>\r\n          <ActionNode id=\"7\" />\r\n        </elem>\r\n        <elem>\r\n         
     <ActionNode id=\"8\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode
     id=\"14\" />\r\n        </elem>\r\n        <elem>\r\n          <SequenceNode
-    id=\"17\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
+    id=\"17\" />\r\n        </elem>\r\n        <elem>\r\n          <RepeatDecorator
+    id=\"21\" />\r\n        </elem>\r\n        <elem>\r\n          <SequenceNode
+    id=\"22\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
     <nodes>\r\n          <ActionNode id=\"14\" />\r\n          <SequenceNode id=\"17\"
-    />\r\n          <ActionNode id=\"7\" />\r\n          <ActionNode id=\"8\" />\r\n       
+    />\r\n          <ActionNode id=\"7\" />\r\n          <ActionNode id=\"8\" />\r\n         
+    <RepeatDecorator id=\"21\" />\r\n          <SequenceNode id=\"22\" />\r\n       
     </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <SequenceNode id=\"17\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"92.74997
-    113.5\" name=\"Sequence\" description=\"Executes all its children in sequence
-    until all of them are successful\" cardinality=\"-1\" hasParent=\"False\">\r\n         
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"232.75
+    11\" name=\"Sequence\" description=\"Executes all its children in sequence until
+    all of them are successful\" cardinality=\"-1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"17\" />\r\n       
     </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"14\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"-209.75
-    241\" name=\"Navigation/MoveToGameObject\" description=\"Moves the game object
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"1.500008
+    129.75\" name=\"Navigation/MoveToGameObject\" description=\"Moves the game object
     towards a given target by using a NavMeshAgent\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"14\" />\r\n         
     <SequenceNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
-    position=\"-11.00002 229.75\" name=\"GameObject/ReturnNextClientWithOrderToGive\"
+    <RepeatDecorator id=\"21\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
+    selected=\"True\" position=\"382.75 151\" name=\"Repeat\" description=\"Repeats
+    the execution of its child node\" cardinality=\"1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"21\" />\r\n         
+    <SequenceNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n   
+    <SequenceNode id=\"22\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"375.25 246\" name=\"Sequence\" description=\"Executes all its children
+    in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"22\" />\r\n         
+    <RepeatDecorator id=\"21\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
+    <ActionNode id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"107.75 333.5\" name=\"GameObject/ReturnNextClientWithOrderToGive\"
     description=\"Returns the client with order to give\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"7\" />\r\n          <SequenceNode
-    id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
+    id=\"22\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ActionNode id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"380.25 237.25\" name=\"Navigation/MoveToGameObject\" description=\"Moves
+    position=\"477.75 329.75\" name=\"Navigation/MoveToGameObject\" description=\"Moves
     the game object towards a given target by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SequenceNode
-    id=\"12\" />\r\n          <SequenceNode id=\"17\" />\r\n        </data>\r\n     
+    id=\"12\" />\r\n          <SequenceNode id=\"22\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n  <runtimeInfo>\r\n    <SequenceNode
     id=\"12\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode id=\"7\"
     />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\" />\r\n       

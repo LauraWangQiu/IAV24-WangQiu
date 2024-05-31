@@ -211,7 +211,7 @@ MonoBehaviour:
     objectParamsLostDefaultValue: 
     layerMaskParams:
     - serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 4096
     layerMaskParamsNames:
     - mask
     layerMaskParamsLostDefaultValue: 

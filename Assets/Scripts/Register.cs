@@ -187,12 +187,4 @@ public class Register : MonoBehaviour
             restaurantRegister.RemoveOrder(gameObject);
         }
     }
-
-    public void WishAssistedToComplete()
-    {
-        if (restaurantRegister != null)
-        {
-            restaurantRegister.RemoveOrderToComplete(gameObject);
-        }
-    }
 }

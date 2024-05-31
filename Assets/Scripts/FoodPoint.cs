@@ -8,15 +8,6 @@ public class FoodPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         OnTrigger(other);
-
-        if (other.CompareTag("Player"))
-        {
-            RestaurantRegister restaurantRegister = GameObject.FindAnyObjectByType<RestaurantRegister>();
-            if (restaurantRegister != null)
-            {
-                restaurantRegister.orders.Clear();
-            }
-        }
     }
 
     private void OnTriggerStay(Collider other)
