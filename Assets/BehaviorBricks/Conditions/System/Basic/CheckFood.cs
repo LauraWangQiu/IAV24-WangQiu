@@ -67,7 +67,7 @@ namespace BBCore.Conditions
                     break;
                 }
             }
-            return cooldown || (restaurantRegister.ordersToComplete.Count == 0 && !isThereMoney);
+            return foodPointComp.foodList.Count > 0 && (cooldown || (restaurantRegister.ordersToComplete.Count == 0 && !isThereMoney));
         }
     }
 }

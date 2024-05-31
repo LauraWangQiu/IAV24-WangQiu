@@ -48,7 +48,7 @@ public class TakeNote : MonoBehaviour
                 {
                     register.petitions.Add(new Petition(myRegister.wish, myRegister.GetComponent<ID>().id, myRegister.gameObject));
                     register.toGive.Add(myRegister.gameObject);
-                    register.WishAssistedToComplete();
+                    myRegister.WishAssistedToComplete();
                 }
                 myRegister.wishOnWait = true;
             }
