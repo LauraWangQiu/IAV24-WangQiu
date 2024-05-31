@@ -198,3 +198,4 @@ PacktPublishing/Unity-Artificial-Intelligence-Programming-Fifth-Edition: Unity A
 - Retro Pixel Ribbons, Banners and Frames 2: https://bdragon1727.itch.io/retro-pixel-ribbons-banners-and-frames-2
 - Free 16x16 Pixel Food Icons: https://electrikjelli.itch.io/free-pixel-food-icons
 - Lemonade 64x64: https://rone3190.itch.io/lemonade-64x64
+- Fondo pantalla de inicio: https://pixabay.com/es/illustrations/burger-hamburguesa-comida-delicioso-2041192/
