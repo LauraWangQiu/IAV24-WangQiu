@@ -105,7 +105,7 @@ MonoBehaviour:
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"7\" />\r\n         
     <RepeatDecorator id=\"20\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <PrioritySelectorNode id=\"28\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"True\" position=\"64.57134 369.715\" name=\"Priority Selector\" description=\"\"
+    selected=\"False\" position=\"64.57134 369.715\" name=\"Priority Selector\" description=\"\"
     cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <PrioritySelectorNode id=\"28\" />\r\n          <SequenceNode id=\"7\" />\r\n       
     </data>\r\n      </_data>\r\n    </PrioritySelectorNode>\r\n    <PrioritySelectorNode
@@ -130,12 +130,12 @@ MonoBehaviour:
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"5\" />\r\n          <SequenceNode id=\"7\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"29\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"141.6342 659.3668\" name=\"Basic/CheckWaitPoint\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"183.0628 676.5097\" name=\"Basic/CheckWaitPoint\"
     description=\"Eval\" cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ConditionEvalNode id=\"29\" />\r\n          <PrioritySelectorNode
     id=\"28\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n   
-    <ActionNode id=\"9\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"34.85808 465.8426\" name=\"Navigation/MoveToGameObject\" description=\"Moves
+    <ActionNode id=\"9\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"76.28664 482.9854\" name=\"Navigation/MoveToGameObject\" description=\"Moves
     the game object towards a given target by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"9\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"31\">\r\n      <_data>\r\n       
