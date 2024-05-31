@@ -15,43 +15,21 @@ public class FoodPoint : MonoBehaviour
         OnTrigger(other);
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Burger") || other.CompareTag("Doughnut") || other.CompareTag("Cupcake"))
-        {
-            if (foodList.Contains(other.gameObject))
-            {
-                foodList.Remove(other.gameObject);
-            }
-        }
-    }
-
     private void OnTrigger(Collider other)
     {
-        if (other.CompareTag("Burger") || other.CompareTag("Doughnut") || other.CompareTag("Cupcake"))
+        bool playerCleared = false;
+        if (other.CompareTag("Player"))
+        {
+            foodList.Clear();
+            playerCleared = true;
+        }
+        if (!playerCleared && other.CompareTag("Burger") || other.CompareTag("Doughnut") || other.CompareTag("Cupcake"))
         {
             if (!foodList.Contains(other.gameObject))
             {
                 foodList.Add(other.gameObject);
             }
         }
-        else if (other.CompareTag("Player"))
-        {
-            Register register = other.GetComponent<Register>();
-            if (register != null)
-            {
-                foreach (Petition food in register.petitions)
-                {
-                    if (food != null)
-                    {
-                        Register clientRegister = food.client.GetComponent<Register>();
-                        if (clientRegister != null)
-                        {
-                            clientRegister.WishAssisted();
-                        }
-                    }
-                }
-            }
-        }
+        
     }
 }

@@ -265,7 +265,7 @@ MonoBehaviour:
     boolParamsNames: []
     boolParamsLostDefaultValue: 
     floatParams:
-    - 0
+    - 2
     floatParamsNames:
     - X
     floatParamsLostDefaultValue: 

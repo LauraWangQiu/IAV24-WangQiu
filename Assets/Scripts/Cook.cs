@@ -8,16 +8,37 @@ public class Cook : MonoBehaviour
 
     public List<Petition> toCook = new List<Petition>();
 
+    [SerializeField] private Register playerRegister;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && playerRegister != null)
         {
-            Register playerRegister = other.GetComponent<Register>();
-            if (playerRegister != null)
+            RestaurantRegister restaurantRegister = GameObject.FindObjectOfType<RestaurantRegister>();
+            if (playerRegister != null && restaurantRegister != null)
             {
                 foreach (Petition item in playerRegister.petitions)
                 {
-                    AddToCookList(item);
+                    if (item != null)
+                    {
+                        AddToCookList(item);
+                        List<GameObject> toRemove = new List<GameObject>();
+                        if (restaurantRegister.orders.Count > 0)
+                        {
+                            foreach (GameObject food in restaurantRegister.orders)
+                            {
+                                if (food != null && restaurantRegister.orders.Contains(item.client))
+                                {
+                                    toRemove.Add(food);
+                                }
+                            }
+                        }
+
+                        foreach (GameObject removeItem in toRemove)
+                        {
+                            restaurantRegister.orders.Remove(removeItem);
+                        }
+                    }
                 }
                 playerRegister.petitions.Clear();
             }
@@ -41,6 +62,10 @@ public class Cook : MonoBehaviour
             {
                 GameObject instantiated = Instantiate(item.obj, spawnPoint.transform.position, Quaternion.identity);
                 instantiated.AddComponent<ID>().id = item.id;
+                if (playerRegister != null)
+                {
+                    playerRegister.toGive.Add(item.client);
+                }
             }
             else
             {

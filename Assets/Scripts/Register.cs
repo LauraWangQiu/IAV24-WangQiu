@@ -179,12 +179,4 @@ public class Register : MonoBehaviour
         wishSprite = null;
         wish = null;
     }
-
-    public void WishAssisted()
-    {
-        if (restaurantRegister != null)
-        {
-            restaurantRegister.RemoveOrder(gameObject);
-        }
-    }
 }

@@ -36,6 +36,7 @@ namespace BBCore.Conditions
                 Register register = client.GetComponent<Register>();
                 if (register != null && register.leave && !register.paid)
                 {
+                    Debug.Log("SI");
                     return true;
                 }
             }
