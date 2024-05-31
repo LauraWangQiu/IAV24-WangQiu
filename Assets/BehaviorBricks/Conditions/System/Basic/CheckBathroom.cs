@@ -21,7 +21,7 @@ namespace BBCore.Conditions
         public GameObject bathroom;
 
         public override bool Check()
-		{
+        {
             if (register == null || register.seat == null)
             {
                 Debug.LogError("Register component or seat not found");
@@ -40,18 +40,28 @@ namespace BBCore.Conditions
                 return false;
             }
             seat = register.seat;
+
+            if (restaurantRegister.bathrooms.Count == 0)
+            {
+                return false;
+            }
+
             foreach (GameObject br in restaurantRegister.bathrooms)
             {
                 Bathroom bathroomComponent = br.GetComponent<Bathroom>();
-                if (bathroomComponent != null && (bathroomComponent.assigned == null || bathroomComponent.assigned == register.gameObject))
+                ID clientID = register.gameObject.GetComponent<ID>();
+                if (bathroomComponent != null && clientID != null &&
+                   (bathroomComponent.id == -1 || bathroomComponent.id == clientID.id))
                 {
-                    bathroom = br;
-                    bathroomComponent.assigned = register.gameObject;
-                    register.bathroom = br;
+                    if (bathroomComponent.id == -1 && register.bathroom == null)
+                    {
+                        bathroomComponent.id = clientID.id;
+                        register.bathroom = bathroom = br;
+                    }
                     return true;
                 }
             }
-			return false;
-		}
+            return true;
+        }
     }
 }

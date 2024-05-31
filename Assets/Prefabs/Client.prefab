@@ -502,10 +502,8 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 887885938454876536}
-    - {fileID: 0}
     objectParamsNames:
     - register
-    - waitPoint
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []

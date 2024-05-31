@@ -78,31 +78,31 @@ MonoBehaviour:
     <ConditionEvalNode id=\"14\" />\r\n          <ActionNode id=\"15\" />\r\n         
     <ConditionEvalNode id=\"16\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
     </BehaviorTree>\r\n    <RepeatDecorator id=\"11\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"810.3334 293.0005\" name=\"Repeat\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"769.3019 559.9006\" name=\"Repeat\"
     description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"11\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <PrioritySelectorNode
     id=\"12\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"758.6661 408\" name=\"Priority Selector\" description=\"\" cardinality=\"1\"
+    position=\"717.6346 674.9001\" name=\"Priority Selector\" description=\"\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <PrioritySelectorNode
     id=\"12\" />\r\n          <RepeatDecorator id=\"11\" />\r\n        </data>\r\n     
     </_data>\r\n    </PrioritySelectorNode>\r\n    <ConditionEvalNode id=\"14\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"1016.112
-    899.4441\" name=\"Basic/CheckMouseButtonWithState\" description=\"Eval\" cardinality=\"1\"
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"975.0801
+    1166.344\" name=\"Basic/CheckMouseButtonWithState\" description=\"Eval\" cardinality=\"1\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ConditionEvalNode
     id=\"14\" />\r\n          <PrioritySelectorNode id=\"12\" />\r\n        </data>\r\n     
     </_data>\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"13\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"520.3329 529.6664\" name=\"Physics/FromMouseToWorldWithState\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"479.3015 796.5665\" name=\"Physics/FromMouseToWorldWithState\"
     description=\"Gets the game object and position that is under the mouse cursor\"
     cardinality=\"0\" hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"13\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <ConditionEvalNode id=\"16\">\r\n      <_data>\r\n        <data breakpoint=\"0\"
-    selected=\"False\" position=\"1532.221 892.7775\" name=\"AlwaysTrue\" description=\"Eval\"
+    selected=\"False\" position=\"1491.189 1159.677\" name=\"AlwaysTrue\" description=\"Eval\"
     cardinality=\"1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ConditionEvalNode id=\"16\" />\r\n          <PrioritySelectorNode id=\"12\"
     />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n    <ActionNode
     id=\"15\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"942.0005 529.6665\" name=\"Navigation/MoveToPosition\" description=\"Moves
+    position=\"900.9688 796.5666\" name=\"Navigation/MoveToPosition\" description=\"Moves
     the game object to a given position by using a NavMeshAgent\" cardinality=\"0\"
     hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"15\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n 
@@ -138,27 +138,27 @@ MonoBehaviour:
     name=\"Basic/CheckMouseButtonWithState\">\r\n      <inputParams />\r\n      <outputParams
     />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n  </runtimeInfo>\r\n 
     <editorInfo>\r\n    <RepeatDecorator id=\"1\">\r\n      <_data>\r\n        <data
-    breakpoint=\"0\" selected=\"False\" position=\"405.4216 -93.04456\" name=\"Repeat\"
+    breakpoint=\"0\" selected=\"False\" position=\"364.3899 173.8555\" name=\"Repeat\"
     description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"1\" />\r\n       
     </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"2\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"398.4216
-    7.955027\" name=\"Sequence\" description=\"Executes all its children in sequence
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"357.3899
+    274.855\" name=\"Sequence\" description=\"Executes all its children in sequence
     until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"2\" />\r\n         
     <RepeatDecorator id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
     <ActionNode id=\"6\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"322.9771 140.8438\" name=\"Physics/FromMouseToWorldWithState\" description=\"Gets
+    position=\"281.9454 407.7437\" name=\"Physics/FromMouseToWorldWithState\" description=\"Gets
     the game object and position that is under the mouse cursor\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ActionNode
     id=\"6\" />\r\n          <SequenceNode id=\"2\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ActionNode id=\"8\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"674.6444 120.2882\" name=\"Navigation/MoveToPosition\"
+    <data breakpoint=\"0\" selected=\"True\" position=\"633.6129 387.1881\" name=\"Navigation/MoveToPosition\"
     description=\"Moves the game object to a given position by using a NavMeshAgent\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"8\" />\r\n          <SequenceNode id=\"2\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ConditionNode id=\"9\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"-14.3558 127.177\" name=\"Basic/CheckMouseButtonWithState\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"-55.38743 394.077\" name=\"Basic/CheckMouseButtonWithState\"
     description=\"Checks whether a mouse button is pressed\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ConditionNode id=\"9\" />\r\n         
     <SequenceNode id=\"2\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionNode>\r\n   
@@ -166,6 +166,6 @@ MonoBehaviour:
     selected=\"False\" position=\"0 0\" name=\"AlwaysTrue\" description=\"Eval\"
     cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n       
     </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.6
+  zoom: 0.8
   subslist: []
   _guid: a7a4e9a4b697a2643961f64c2f3f3593

@@ -2203,7 +2203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 38.809998, y: 27.56}
+  m_AnchoredPosition: {x: 38.81006, y: 27.560059}
   m_SizeDelta: {x: 363.8, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &128315793
@@ -3307,7 +3307,7 @@ Transform:
   m_GameObject: {fileID: 240641864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.27, y: 0.5, z: 4.6}
+  m_LocalPosition: {x: -5.27, y: 0.5, z: 4.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3989,9 +3989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42313fd7389c1c647b2a1b876f18d109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: Client
-  isAvailable: 1
-  assigned: {fileID: 0}
+  id: -1
 --- !u!65 &316766007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11002,7 +11000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 818189380}
   m_Layer: 0
-  m_Name: Zero
+  m_Name: WaiterStopPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11017,7 +11015,7 @@ Transform:
   m_GameObject: {fileID: 818189379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: -7.2, y: 0.5, z: 0.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15368,7 +15366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70.410034, y: -129.8}
+  m_AnchoredPosition: {x: 70.41016, y: -129.80005}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1258207916
@@ -16513,9 +16511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42313fd7389c1c647b2a1b876f18d109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName: Client
-  isAvailable: 1
-  assigned: {fileID: 0}
+  id: -1
 --- !u!65 &1338610880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23728,7 +23724,7 @@ Transform:
   m_GameObject: {fileID: 1975195797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.24, y: 0.5, z: 5.06}
+  m_LocalPosition: {x: 2.7, y: 0.5, z: 5.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24870,29 +24866,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194227}
     - target: {fileID: 5612399784202364721, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: blackboard.objectParams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5612399784202364721, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: blackboard.vector3Params.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5612399784202364721, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: blackboard.objectParams.Array.data[2]
+      propertyPath: blackboard.objectParams.Array.data[1]
       value: 
       objectReference: {fileID: 818189379}
-    - target: {fileID: 5612399784202364721, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: blackboard.objectParamsNames.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5612399784202364721, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: blackboard.vector3ParamsNames.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5612399784202364721, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
-      propertyPath: blackboard.objectParamsNames.Array.data[2]
-      value: zero
-      objectReference: {fileID: 0}
     - target: {fileID: 6254734017002278966, guid: fe024d7eeef1cc244a6e93fb5bca1409, type: 3}
       propertyPath: m_Name
       value: Player

@@ -211,7 +211,7 @@ MonoBehaviour:
     objectParamsLostDefaultValue: 
     layerMaskParams:
     - serializedVersion: 2
-      m_Bits: 4096
+      m_Bits: 0
     layerMaskParamsNames:
     - mask
     layerMaskParamsLostDefaultValue: 
@@ -265,7 +265,7 @@ MonoBehaviour:
     boolParamsNames: []
     boolParamsLostDefaultValue: 
     floatParams:
-    - 2
+    - 0
     floatParamsNames:
     - X
     floatParamsLostDefaultValue: 
@@ -277,10 +277,10 @@ MonoBehaviour:
     colorParamsLostDefaultValue: 
     objectParams:
     - {fileID: 4885707310374143295}
-    - {fileID: 4885707310374143295}
+    - {fileID: 0}
     objectParamsNames:
     - register
-    - register
+    - zero
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
